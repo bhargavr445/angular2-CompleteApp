@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
-import { AppService } from 'app/AppService';
-import { Employee } from 'app/employee';
-import { Student } from 'app/student';
+import { AppService } from '../AppService';
+import { Employee } from '../employee';
+import { Student } from '../student';
 @Component({
   selector: 'app-edit-student',
   templateUrl: './edit-student.component.html',
