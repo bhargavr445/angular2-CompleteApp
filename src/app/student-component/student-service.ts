@@ -28,6 +28,7 @@ export class StudentService{
     );
   }
 
+  
   deleteStudent(id){
 		  return this.http.delete(`${"http://localhost:7070/MySpringMVC/springMvc/training/deleteStudent"}/${id}`)
       .map((deleteResp:Response)=>{
