@@ -11,7 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 const employeeRoute: Routes= [
-    {   path:'',                    redirectTo:'employeeList',        pathMatch:'full'},
+    {   path:'',                        redirectTo:'employeeList',        pathMatch:'full'},
     {   path:'employeeList',            component: EmployeeComponent }
 ];
 
