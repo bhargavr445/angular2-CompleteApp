@@ -1,0 +1,77 @@
+<div class="container" *ngIf="showFormToAdd">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8
+                col-sm-offset-1 col-md-offset-2">
+      <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            formControlName="username"
+            class="form-control"
+            >
+        </div>
+        <div class="form-group">
+          <label for="email">email</label>
+          <input
+            type="text"
+            id="email"
+            formControlName="email"
+            class="form-control">
+        </div>
+        <div class="radio" *ngFor="let gender of genders">
+          <label>
+            <input
+              type="radio"
+              formControlName="gender"
+              [value]="gender">{{ gender }}
+          </label>
+        </div>
+        <div class="form-group">
+          <select
+              ([ngModel])="selectedTeam"
+              (change)="changeEvent($event.target.value)"
+              id="selectState"
+              formControlName="state">
+            <option *ngFor="let team of teams">{{ team.name }}
+            </option>
+          </select>
+        </div>
+         <button class="btn btn-primary" type="submit">Submit</button>
+        <button class="btn btn-primary" (click)="getData()"type="GetData">GET</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="col-lg-6">
+    <div class="col-md-8 col-sm-8">
+      <button class="btn btn-primary" *ngIf="hideButton" (click)="AddForm()">Add</button>
+      <button class="btn btn-primary" (click)="getAllStudents()">Get All Students</button>
+        <button *ngIf="Employees?.length > 0" class="btn btn-danger" (click)="clearAllStudents()">Clear Table Data</button>
+      </div>
+      <table *ngIf="Employees?.length > 0" class="table" style="background-color:powderblue;">
+        <thead class="thead-dark">
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Sal</th>
+            <th>Age</th>
+            <th>Profile Pic</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp of Employees">
+            <td>{{emp.id}}</td>
+            <td>{{emp.employee_name}}</td>
+              <td>{{emp.employee_age}}</td>
+            <td>{{emp.employee_sal}}</td>
+            <td *ngIf="emp.employee_age>'20'">👩‍💼‍</td>
+            <td *ngIf="emp.employee_age<'20'">👨‍💼</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
