@@ -3,7 +3,7 @@ import { ModuleWithProviders } from '@angular/core';
 
 const employeeModuleRouting: Routes=[
     
-    {path:'lazy', loadChildren:'app/modules/employee.module#EmployeeModule'}
+    {path:'employee', loadChildren:'app/modules/employee.module#EmployeeModule'}
 ];
 
 //Users/bhargavrguntaka/Downloads/forms-reactive-startB/src/app/modules/employee.module.ts
