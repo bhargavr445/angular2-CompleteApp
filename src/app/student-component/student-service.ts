@@ -46,6 +46,10 @@ export class StudentService{
 			return data;
 		}
 	);
-	}
+  }
+  
+  updateEmp(Employee){
+    console.log(Employee);
+  }
 
 }
