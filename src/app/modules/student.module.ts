@@ -6,7 +6,7 @@ import { StudentService } from '../student-component/student-service';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { UppercaseDirective } from '../ditrctives/uppercase.directive';
 
 
 
@@ -16,7 +16,10 @@ const studentRoute: Routes= [
 ];
 
 @NgModule({
-    declarations:[StudentComponentComponent],
+    declarations:[
+        StudentComponentComponent,
+        UppercaseDirective
+    ],
     imports:[
         CommonModule,
         FormsModule,

@@ -8,19 +8,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AppService } from './AppService';
 import { EditStudentComponent } from './edit-student/edit-student.component';
-import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 import { eRouting } from './module-routing/employee-routing';
 import { sRouting } from './module-routing/student-routing';
+//import { MouseOverDirective } from './ditrctives/mouse-over.directive';
 
 const router: Routes=[
   { path:'',                    component: AppComponent },
-  { path:'editStudent/:id',     component: EditStudentComponent }
+  { path:'student/editStudent/:id',     component: EditStudentComponent }
 ];
 @NgModule({
   declarations: [
     AppComponent,
-    EditStudentComponent,
-    EditEmployeeComponent
+    EditStudentComponent
+    //MouseOverDirective,
   ],
   imports: [
     BrowserModule,

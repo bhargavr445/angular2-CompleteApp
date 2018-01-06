@@ -48,8 +48,6 @@ export class StudentService{
 	);
   }
   
-  updateEmp(Employee){
-    console.log(Employee);
-  }
+  
 
 }

@@ -22,6 +22,7 @@ export class StudentComponentComponent implements OnInit {
   showData:boolean=true;
   showEditForm:boolean=false;
   firstNames: string[];
+  reactiveValue :string;
   idList:[
     {'id':1},
       {'id':2},
@@ -59,6 +60,13 @@ export class StudentComponentComponent implements OnInit {
 
     this.editStudentForm = this.newStudentForm;
 
+  }
+
+  UpperCase(event) {
+    console.log(event);
+    this.reactiveValue = event;
+    
+    //this.form.get('amount').patchValue(event);
   }
 
   getStudentData(){
@@ -99,7 +107,7 @@ export class StudentComponentComponent implements OnInit {
     this.getStudentData();
   }
   editStudent(id){
-    this.router.navigate(['/editStudent',id]);
+    this.router.navigate(['student/editStudent',id]);
   }
 
   getFirstNames(){

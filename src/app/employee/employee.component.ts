@@ -44,6 +44,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   getAllStudents(){
+    console.log("Get Students function");
     this.employeeService.getAllStudents().
     subscribe((studentData: Employee[])=> this.Employees=studentData,
     (error)=> console.log(error));
@@ -54,7 +55,6 @@ export class EmployeeComponent implements OnInit {
     this.Employees=null;
     this.hideButton=false;
     this.showFormToAdd=false;
-
   }
 
   AddForm(){
@@ -68,7 +68,6 @@ export class EmployeeComponent implements OnInit {
       (eData:any)=>this.printEmpData(eData),
       (error)=> console.log(error)
     );
-
   }
 
   printEmpData(emp: Employee){
@@ -87,10 +86,9 @@ export class EmployeeComponent implements OnInit {
     this.empTable=true;
     //console.log(this.employeeEditForm.value);
     this.employeeService.updateEmp(this.employeeEditForm.value).subscribe(
-      (result:any)=>console.log(result),
+      (result:any)=>console.log("Update Response"),
       (error)=>console.log(error)
     );
+    this.getAllStudents();
   }
-
-  
 }

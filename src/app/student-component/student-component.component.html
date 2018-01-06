@@ -3,6 +3,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8
                 col-sm-offset-1 col-md-offset-2">
+                <p><strong style="color:red">**Note**</strong>Upper case directive is enabled for First and Last Name i/p fields</p>
       <form [formGroup]="newStudentForm" (ngSubmit)="submitNewStudent()">
         <div class="form-group">
           <label for="id">Id:</label>
@@ -18,7 +19,8 @@
           id="fName"
           name="fName"
           formControlName="fName"
-          class="form-control" >
+          class="form-control" class="form-control" [UpperCase]="true"
+          (fxChange)="UpperCase($event)">
       </div>
       <div class="form-group">
         <label for="username">Last Name:</label>
@@ -26,7 +28,8 @@
           id="lName"
           name="lName"
           formControlName="lName"
-          class="form-control" >
+          class="form-control" [UpperCase]="true"
+          (fxChange)="UpperCase($event)">
       </div>
         <div class="form-group">
           <label for="username">Email:</label>

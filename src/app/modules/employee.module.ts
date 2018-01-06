@@ -6,6 +6,7 @@ import { EmployeeService } from '../employee/employee-service';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MouseOverDirective } from '../ditrctives/mouse-over.directive';
 
 
 
@@ -16,12 +17,18 @@ const employeeRoute: Routes= [
 ];
 
 @NgModule({
-    declarations:[EmployeeComponent],
+    declarations:[
+        EmployeeComponent,
+        MouseOverDirective
+    
+    ],
     imports:[
         CommonModule,
         FormsModule,
         HttpModule,
         ReactiveFormsModule,
+
+        
         RouterModule.forChild(employeeRoute)
     ],
     providers:[EmployeeService],
