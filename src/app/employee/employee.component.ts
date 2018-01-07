@@ -4,7 +4,7 @@ import { Student } from '../student';
 import { EmployeeService } from './employee-service';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import { Employee } from '../employee';
-
+declare var $;
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
@@ -24,6 +24,13 @@ export class EmployeeComponent implements OnInit {
 
   constructor(private employeeService: EmployeeService) {
       this.getAllStudents();
+      setTimeout( function(){
+        $(function(){
+          $('#dt').DataTable();
+        });
+      }, 2000);
+      
+      
   }
 
   ngOnInit() {
@@ -33,7 +40,7 @@ export class EmployeeComponent implements OnInit {
   	// 	'gender' : new FormControl('male'),
     //   'state': new FormControl('Md')
     // });
-
+    
     this.employeeEditForm = new FormGroup({
   		'id': new FormControl(null, Validators.required),
   		'name' : new FormControl(null, Validators.required),
@@ -63,11 +70,11 @@ export class EmployeeComponent implements OnInit {
 
   editEmployee(id){
     this.empTable=false;
-    this.showEmployeeEditForm=true;
     this.employeeService.getDataToEdit(id).subscribe(
       (eData:any)=>this.printEmpData(eData),
       (error)=> console.log(error)
     );
+    this.showEmployeeEditForm=true;
   }
 
   printEmpData(emp: Employee){

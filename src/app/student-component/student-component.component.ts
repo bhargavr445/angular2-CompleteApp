@@ -5,6 +5,7 @@ import { AppService } from '../AppService';
 import { Employee } from '../employee';
 import { Student } from '../student';
 import { StudentService } from './student-service';
+declare var $;
 @Component({
   selector: 'app-student-component',
   templateUrl: './student-component.component.html',
@@ -46,6 +47,11 @@ export class StudentComponentComponent implements OnInit {
               private router: Router) {
       this.getStudentData();
       this.getFirstNames();
+      setTimeout( function(){
+        $(function(){
+          $('#dt').DataTable();
+        });
+      }, 2000);
   }
   ngOnChange(){
     this.getStudentData();

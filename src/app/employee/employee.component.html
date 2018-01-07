@@ -45,14 +45,14 @@
   </div>
 </div> -->
 
-<div class="container" *ngIf="empTable">
+<div  class="container" *ngIf="empTable">
   <div class="col-lg-6">
     <div class="col-md-8 col-sm-8">
       <button class="btn btn-primary" *ngIf="hideButton" (click)="AddForm()">Add</button>
       <button class="btn btn-primary" (click)="getAllStudents()">Get All Students</button>
         <button *ngIf="Employees?.length > 0" class="btn btn-danger" (click)="clearAllStudents()">Clear Table Data</button>
       </div>
-      <table *ngIf="Employees?.length > 0" class="table" style="background-color:powderblue;">
+      <table id="dt" *ngIf="Employees?.length > 0" class="table" style="background-color:powderblue;">
         <thead class="thead-dark">
           <tr>
             <th>Id</th>
@@ -107,7 +107,7 @@
             id="name"
             formControlName="name"
             class="form-control"
-            [(ngModel)]="form.value.name" uppercase>
+            >
         </div>
         <div class="form-group">
           <label for="sal">Sal</label>

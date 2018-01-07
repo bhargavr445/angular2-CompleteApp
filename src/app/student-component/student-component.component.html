@@ -19,8 +19,8 @@
           id="fName"
           name="fName"
           formControlName="fName"
-          class="form-control" class="form-control" [UpperCase]="true"
-          (fxChange)="UpperCase($event)">
+          class="form-control"  
+          >
       </div>
       <div class="form-group">
         <label for="username">Last Name:</label>
@@ -28,8 +28,7 @@
           id="lName"
           name="lName"
           formControlName="lName"
-          class="form-control" [UpperCase]="true"
-          (fxChange)="UpperCase($event)">
+          class="form-control" >
       </div>
         <div class="form-group">
           <label for="username">Email:</label>
@@ -53,7 +52,7 @@
 </div>
 <div class="container">
   <div class="col-lg-8">
-    <table class="table" style="background-color:powderblue;">
+    <table id="dt" class="table" style="background-color:powderblue;">
       <thead class="thead-dark">
         <tr>
           <th>Id</th>
