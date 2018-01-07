@@ -3,11 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { StudentComponentComponent } from '../student-component/student-component.component';
 import { StudentService } from '../student-component/student-service';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { ReactiveFormsModule } from '@angular/forms';
-import { UppercaseDirective } from '../ditrctives/uppercase.directive';
-
+import { SharedModule } from '../shared.module';
 
 
 const studentRoute: Routes= [
@@ -17,14 +13,11 @@ const studentRoute: Routes= [
 
 @NgModule({
     declarations:[
-        StudentComponentComponent,
-        UppercaseDirective
+        StudentComponentComponent
     ],
     imports:[
         CommonModule,
-        FormsModule,
-        HttpModule,
-        ReactiveFormsModule,
+        SharedModule,
         RouterModule.forChild(studentRoute)
     ],
     providers:[StudentService],

@@ -5,9 +5,7 @@ import { Directive, ElementRef, Input } from '@angular/core';
      selector: '[UpperCase]',
      host: {
         '(input)': 'toUpperCase($event.target.value)',
-
      }
-
     })
     export class UppercaseDirective  {
 

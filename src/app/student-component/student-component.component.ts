@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
-import { AppService } from 'app/AppService';
-import { Employee } from 'app/employee';
-import { Student } from 'app/student';
+import { AppService } from '../AppService';
+import { Employee } from '../employee';
+import { Student } from '../student';
 import { StudentService } from './student-service';
 @Component({
   selector: 'app-student-component',
@@ -61,13 +61,13 @@ export class StudentComponentComponent implements OnInit {
     this.editStudentForm = this.newStudentForm;
 
   }
-
-  UpperCase(event) {
-    console.log(event);
-    this.reactiveValue = event;
+//This function may required for uppercase directive(Not sure)
+  // UpperCase(event) {
+  //   console.log(event);
+  //   this.reactiveValue = event;
     
-    //this.form.get('amount').patchValue(event);
-  }
+  //   //this.form.get('amount').patchValue(event);
+  // }
 
   getStudentData(){
     this.studentService.getStudentData().subscribe(

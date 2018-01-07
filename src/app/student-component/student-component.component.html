@@ -64,7 +64,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let stu of Students">
+        <tr [appMouseOver]="'pink'" *ngFor="let stu of Students">
           <td *ngIf="showData">{{stu.id}}</td>
           <td *ngIf="showEditForm"><input name="id" formControlName="id" class="form-control" value={{stu.id}}></td>
           <td *ngIf="showData">{{stu.fName | uppercase}}</td>
