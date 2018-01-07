@@ -51,7 +51,7 @@ export class StudentComponentComponent implements OnInit {
         $(function(){
           $('#dt').DataTable();
         });
-      }, 2000);
+      }, 100);
   }
   ngOnChange(){
     this.getStudentData();
