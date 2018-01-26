@@ -24,6 +24,7 @@ export class StudentComponentComponent implements OnInit {
   showEditForm:boolean=false;
   firstNames: string[];
   reactiveValue :string;
+  createResponse:any;
   idList:[
     {'id':1},
       {'id':2},
@@ -67,13 +68,6 @@ export class StudentComponentComponent implements OnInit {
     this.editStudentForm = this.newStudentForm;
 
   }
-//This function may required for uppercase directive(Not sure)
-  // UpperCase(event) {
-  //   console.log(event);
-  //   this.reactiveValue = event;
-    
-  //   //this.form.get('amount').patchValue(event);
-  // }
 
   getStudentData(){
     this.studentService.getStudentData().subscribe(
@@ -107,14 +101,16 @@ export class StudentComponentComponent implements OnInit {
   }
 
   deleteStudent(id){
-    this.studentService.deleteStudent(id)
-    .subscribe((result:number)=>this.deleteResult=result,(error)=>console.log(error));
+    this.studentService.deleteStudent(id).subscribe(
+      (result:number)=>this.deleteResult=result,
+      (error)=>console.log(error)
+    );
     this.Students=null;
     this.getStudentData();
   }
   editStudent(id){
     this.router.navigate(['student/editStudent',id]);
-  }
+  } 
 
   getFirstNames(){
     this.studentService.getFirstNames().subscribe(
@@ -127,4 +123,10 @@ export class StudentComponentComponent implements OnInit {
     alert(selectedId);
   }
 
+  addNewStudentTest(){
+    this.studentService.addNewStudentTest(this.newStudentForm.value).subscribe(
+      (addResponse: any)=>this.createResponse=addResponse,
+      (error)=> console.log(error)
+    );
+  }
 }

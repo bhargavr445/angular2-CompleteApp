@@ -48,6 +48,15 @@ export class StudentService{
 	);
   }
   
-  
+  addNewStudentTest(student){
+    return this.http.post("http://localhost:7070/MySpringMVC/springMvc/training/createStudent", student).map(
+      (response:Response)=>{
+        const data = response.json();
+        return data;
+      }
+    );
+  }
+
+ 
 
 }

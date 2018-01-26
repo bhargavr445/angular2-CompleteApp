@@ -36,4 +36,15 @@ export class EmployeeService{
 			}
 		);
 	  }
+
+	  addNewStudent(Employee){
+		  console.log(Employee);
+		  //http://dummy.restapiexample.com/api/v1/create
+		  return this.http.post("http://dummy.restapiexample.com/api/v1/create", Employee).map(
+			  (response:Response)=>{
+				  const data = response.json();
+				  return data;
+			  }
+		  );
+	  }
 }

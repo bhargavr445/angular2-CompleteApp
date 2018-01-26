@@ -4,12 +4,15 @@ import { Student } from '../student';
 import { EmployeeService } from './employee-service';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import { Employee } from '../employee';
+import { error } from 'util';
 declare var $;
+
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css']
 })
+
 export class EmployeeComponent implements OnInit {
   Employees: Employee[];
   employee: Employee;
@@ -21,6 +24,7 @@ export class EmployeeComponent implements OnInit {
   genders = ['male', 'female'];
   empTable: boolean= true;
   showEmployeeEditForm: boolean= false;
+  addResult:number;
 
   constructor(private employeeService: EmployeeService) {
       this.getAllStudents();
@@ -29,17 +33,16 @@ export class EmployeeComponent implements OnInit {
           $('#dt').DataTable();
         });
       }, 2000);
-      
-      
   }
 
   ngOnInit() {
-    // this.signUpForm = new FormGroup({
-  	// 	'username': new FormControl(null, Validators.required),
-  	// 	'email' : new FormControl(null, [Validators.required, Validators.email]),
-  	// 	'gender' : new FormControl('male'),
-    //   'state': new FormControl('Md')
-    // });
+    this.signUpForm = new FormGroup({
+  		'id': new FormControl(null, Validators.required),
+  		'employee_name' : new FormControl(null, Validators.required),
+  		'employee_sal' : new FormControl(null, Validators.required),
+      'employee_age': new FormControl(null, Validators.required),
+      'employee_profile_pic': new FormControl(null, Validators.required)
+    });
     
     this.employeeEditForm = new FormGroup({
   		'id': new FormControl(null, Validators.required),
@@ -97,5 +100,12 @@ export class EmployeeComponent implements OnInit {
       (error)=>console.log(error)
     );
     this.getAllStudents();
+  }
+  submitNewEmployee(){
+    //console.log(this.signUpForm.value);
+     this.employeeService.addNewStudent(this.signUpForm.value).subscribe(
+      (addResponse:any)=>this.addResult=addResponse,
+      (error)=>console.log(error)
+    );
   }
 }

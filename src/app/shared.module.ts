@@ -33,4 +33,6 @@ import { UppercaseDirective } from './ditrctives/uppercase.directive';
 ]
 
 })
-export class SharedModule { }
+export class SharedModule { 
+  
+}

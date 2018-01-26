@@ -4,6 +4,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { AppService } from '../AppService';
 import { Employee } from '../employee';
 import { Student } from '../student';
+import { StudentService }from '../student-component/student-service';
+
 @Component({
   selector: 'app-edit-student',
   templateUrl: './edit-student.component.html',
@@ -16,6 +18,7 @@ Employees: Employee[];
 student:Student;
 Students: Student[];
 id:number=0;
+dResponse: any;
 idList:number[];
   constructor(private appService: AppService,
               private route: ActivatedRoute) {
@@ -40,7 +43,8 @@ idList:number[];
   }
 
  init(stu: Student){
-   this.student = stu;
+   //this.student = stu;
+    const studentReset =JSON.parse(JSON.stringify(stu));
    this.editStudentForm.setValue({
      id:stu.id,
      fName:stu.fName,
@@ -50,7 +54,10 @@ idList:number[];
  }
 
  editStudent() {
-
+    console.log(this.editStudentForm.value);
+    this.appService.editStudentSubmit(this.editStudentForm.value).subscribe(
+      (deleteResponse:any)=>this.dResponse=deleteResponse,
+      (error)=>console.log(error)
+    );
  }
-
 }

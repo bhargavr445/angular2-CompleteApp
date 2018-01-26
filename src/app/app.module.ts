@@ -10,7 +10,6 @@ import { AppService } from './AppService';
 import { EditStudentComponent } from './edit-student/edit-student.component';
 import { eRouting } from './module-routing/employee-routing';
 import { sRouting } from './module-routing/student-routing';
-//import { MouseOverDirective } from './ditrctives/mouse-over.directive';
 
 const router: Routes=[
   { path:'',                    component: AppComponent },
@@ -20,7 +19,6 @@ const router: Routes=[
   declarations: [
     AppComponent,
     EditStudentComponent
-    //MouseOverDirective,
   ],
   imports: [
     BrowserModule,

@@ -18,7 +18,6 @@ const employeeRoute: Routes= [
     ],
     providers:[],
     exports:[EmployeeComponent]
-
     })
 
 export  class EmployeeModule{

@@ -1,5 +1,5 @@
 
-<div class="container" *ngIf="studentFormShow">
+<!-- <div class="container" *ngIf="studentFormShow">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8
                 col-sm-offset-1 col-md-offset-2">
@@ -19,8 +19,7 @@
           id="fName"
           name="fName"
           formControlName="fName"
-          class="form-control"  
-          >
+          class="form-control">
       </div>
       <div class="form-group">
         <label for="username">Last Name:</label>
@@ -28,7 +27,7 @@
           id="lName"
           name="lName"
           formControlName="lName"
-          class="form-control" >
+          class="form-control">
       </div>
         <div class="form-group">
           <label for="username">Email:</label>
@@ -37,13 +36,22 @@
           name="email"
           formControlName="email"
           class="form-control" >
-      </div>
+        </div>
          <button class="btn btn-primary" type="submit">Submit New Student</button>
          <button class="btn btn-danger" type="submit" (click)="hideStudentForm()">cancel</button>
       </form>
     </div>
   </div>
-</div>
+</div> -->
+<form [formGroup]="newStudentForm" (ngSubmit)="addNewStudentTest()">
+  <input type="number" id="id" name="name" formControlName="id" placeholder="ID">
+  <input type="text" id="fName" name="fName" formControlName="fName" placeholder="fName">
+  <input type="text" id="lName" name="lName" formControlName="lName" placeholder="lName">
+  <input type="text" id="email" name="email" formControlName="email" placeholder="email">
+  <button type="submit">Submit</button>
+</form>
+
+
 <div class="container">
   <div class="col-lg-8">
     <button class="btn btn-primary" *ngIf="showAddButton" (click)="addNewStudent()">Add New Student</button>

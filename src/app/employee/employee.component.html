@@ -1,53 +1,59 @@
-<!-- <div class="container" *ngIf="showFormToAdd">
+<div class="container" *ngIf="showFormToAdd">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8
                 col-sm-offset-1 col-md-offset-2">
-      <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="signUpForm" (ngSubmit)="submitNewEmployee()">
         <div class="form-group">
-          <label for="username">Username</label>
+          <label for="id">Id</label>
           <input
-            type="text"
-            id="username"
-            formControlName="username"
+            type="number"
+            id="id"
+            formControlName="id"
             class="form-control"
             >
         </div>
         <div class="form-group">
-          <label for="email">email</label>
+          <label for="name">Name</label>
           <input
             type="text"
-            id="email"
-            formControlName="email"
+            id="name"
+            formControlName="employee_name"
             class="form-control">
         </div>
-        <div class="radio" *ngFor="let gender of genders">
-          <label>
-            <input
-              type="radio"
-              formControlName="gender"
-              [value]="gender">{{ gender }}
-          </label>
+        <div class="form-group">
+          <label for="sal">Sal</label>
+          <input
+            type="text"
+            id="sal"
+            formControlName="employee_sal"
+            class="form-control">
         </div>
         <div class="form-group">
-          <select
-              ([ngModel])="selectedTeam"
-              (change)="changeEvent($event.target.value)"
-              id="selectState"
-              formControlName="state">
-            <option *ngFor="let team of teams">{{ team.name }}
-            </option>
-          </select>
+          <label for="age">Age</label>
+          <input
+            type="text"
+            id="age"
+            formControlName="employee_age"
+            class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="pp">PP</label>
+          <input
+            type="text"
+            id="pp"
+            formControlName="employee_profile_pic"
+            class="form-control">
         </div>
          <button class="btn btn-primary" type="submit">Submit</button>
         <button class="btn btn-primary" (click)="getData()"type="GetData">GET</button>
       </form>
     </div>
   </div>
-</div> -->
+</div>
 <div  class="container" *ngIf="empTable">
   <div class="col-lg-6">
     <div class="col-md-8 col-sm-8">
-      <button class="btn btn-primary" *ngIf="hideButton" (click)="AddForm()">Add</button>
+      <button class="btn btn-primary"  (click)="AddForm()">Add</button>
       <button class="btn btn-primary" (click)="getAllStudents()">Get All Students</button>
         <button *ngIf="Employees?.length > 0" class="btn btn-danger" (click)="clearAllStudents()">Clear Table Data</button>
       </div>

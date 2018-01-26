@@ -5,5 +5,5 @@ export class Employee {
     employee_name: string;
     employee_sal: string;
     employee_age: string;
-    profile_pic: string;
+    employee_profile_pic: string;
 }

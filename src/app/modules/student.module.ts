@@ -20,8 +20,12 @@ const studentRoute: Routes= [
         SharedModule,
         RouterModule.forChild(studentRoute)
     ],
-    providers:[StudentService],
-    exports:[StudentComponentComponent]
+    providers:[
+        StudentService
+    ],
+    exports:[
+        StudentComponentComponent
+    ]
 
     })
 
