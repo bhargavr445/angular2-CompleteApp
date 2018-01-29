@@ -31,7 +31,8 @@ export class StudentService{
   
   deleteStudent(id){
 		  return this.http.delete(`${"http://localhost:7070/MySpringMVC/springMvc/training/deleteStudent"}/${id}`)
-      .map((deleteResp:Response)=>{
+      .map(
+        (deleteResp:Response)=>{
 		  		const result = deleteResp.json();
 		  		return result;
 		  	}
@@ -40,9 +41,10 @@ export class StudentService{
 
   getFirstNames(){
 		return this.http.get("http://localhost:7070/MySpringMVC/springMvc/training/getStudentNamesList")
-		.map((fnamesResponse: Response)=>
+		.map(
+      (fnamesResponse: Response)=>
 		{
-			const data = fnamesResponse.json()
+			const data = fnamesResponse.json();
 			return data;
 		}
 	);

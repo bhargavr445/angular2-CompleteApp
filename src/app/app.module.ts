@@ -11,14 +11,9 @@ import { EditStudentComponent } from './edit-student/edit-student.component';
 import { eRouting } from './module-routing/employee-routing';
 import { sRouting } from './module-routing/student-routing';
 
-const router: Routes=[
-  { path:'',                    component: AppComponent },
-  { path:'student/editStudent/:id',     component: EditStudentComponent }
-];
 @NgModule({
   declarations: [
-    AppComponent,
-    EditStudentComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -27,8 +22,7 @@ const router: Routes=[
     ReactiveFormsModule,
     SelectModule,
     eRouting,
-    sRouting,
-    RouterModule.forRoot(router)
+    sRouting
   ],
   providers: [AppService],
   bootstrap: [AppComponent]

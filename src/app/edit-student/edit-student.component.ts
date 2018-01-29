@@ -20,6 +20,7 @@ Students: Student[];
 id:number=0;
 dResponse: any;
 idList:number[];
+
   constructor(private appService: AppService,
               private route: ActivatedRoute) {
     this.editStudentForm= new FormGroup({
@@ -31,8 +32,19 @@ idList:number[];
   }
 
   ngOnInit() {
-    this.id=this.route.snapshot.params['id'];
-    this.appService.editStudent(this.id).subscribe(
+    //this.id=this.route.snapshot.params['id'];  
+    //Use the above approach only if we dont need to reload page from the same component
+    this.route.params.subscribe(
+      (param: Params)=>{
+        this.student={
+          id:param['id'],
+          fName:param['fname'],
+          lName:param['fname'],
+          email:param['fname']
+        };
+      }
+    );
+    this.appService.editStudent(this.student.id).subscribe(
       (responseData: any)=> this.init(responseData),
       (error)=> console.log(error)
     );
