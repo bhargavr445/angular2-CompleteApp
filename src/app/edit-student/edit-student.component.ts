@@ -1,17 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { AppService } from '../AppService';
 import { Employee } from '../employee';
 import { Student } from '../student';
 import { StudentService }from '../student-component/student-service';
+import { Subscription } from 'rxjs/Subscription';
+
 
 @Component({
   selector: 'app-edit-student',
   templateUrl: './edit-student.component.html',
   styleUrls: ['./edit-student.component.css']
 })
-export class EditStudentComponent implements OnInit {
+export class EditStudentComponent implements OnInit, OnDestroy {
 
 editStudentForm: FormGroup;
 Employees: Employee[];
@@ -20,6 +22,7 @@ Students: Student[];
 id:number=0;
 dResponse: any;
 idList:number[];
+subscribeParams : Subscription;
 
   constructor(private appService: AppService,
               private route: ActivatedRoute) {
@@ -34,20 +37,27 @@ idList:number[];
   ngOnInit() {
     //this.id=this.route.snapshot.params['id'];  
     //Use the above approach only if we dont need to reload page from the same component
-    this.route.params.subscribe(
+    //1. 
+    this.subscribeParams=this.route.params.subscribe(
       (param: Params)=>{
         this.student={
           id:param['id'],
           fName:param['fname'],
-          lName:param['fname'],
-          email:param['fname']
+          lName:param['lname'],
+          email:param['email']
         };
       }
     );
+    console.log(this.route.fragment.subscribe());
+    console.log(this.route.queryParams.subscribe());
     this.appService.editStudent(this.student.id).subscribe(
       (responseData: any)=> this.init(responseData),
       (error)=> console.log(error)
     );
+  }
+
+  ngOnDestroy(){
+    this.subscribeParams.unsubscribe();
   }
 
   reset(){

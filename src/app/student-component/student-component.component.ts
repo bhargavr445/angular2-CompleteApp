@@ -109,7 +109,7 @@ export class StudentComponentComponent implements OnInit {
     this.getStudentData();
   }
   editStudent(id){
-    this.router.navigate(['student/editStudent',id]);
+    this.router.navigate(['student/editStudent',id],{queryParams:{edit:'445', editNow:'188', }, fragment:'loading'});
   } 
 
   getFirstNames(){

@@ -1,0 +1,21 @@
+
+<div  class="container">
+  <div class="col-lg-6"> 
+      <table id="dt"  class="table" style="background-color:powderblue;">
+        <thead class="thead-dark">
+          <tr>
+            <th>Id</th>
+            <th>Dept</th>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr [appMouseOver]="'pink'" *ngFor="let user of userList">
+            <td>{{user.id}}</td>
+            <td>{{user.dept}}</td>
+              <td>{{user.name}}</td>
+          </tr>
+        </tbody>
+      </table>
+     </div>
+</div> 
