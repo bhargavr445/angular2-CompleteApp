@@ -19,7 +19,7 @@ editStudentForm: FormGroup;
 Employees: Employee[];
 student:Student;
 Students: Student[];
-id:number=0;
+id:number;
 dResponse: any;
 idList:number[];
 subscribeParams : Subscription;
@@ -81,5 +81,8 @@ subscribeParams : Subscription;
       (deleteResponse:any)=>this.dResponse=deleteResponse,
       (error)=>console.log(error)
     );
+ }
+ getDetails(id:number){
+   
  }
 }

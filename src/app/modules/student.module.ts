@@ -5,11 +5,15 @@ import { StudentComponentComponent } from '../student-component/student-componen
 import { StudentService } from '../student-component/student-service';
 import { SharedModule } from '../shared.module';
 import { EditStudentComponent} from '../edit-student/edit-student.component';
+import { StudentDetailsComponent } from '../student-component/student-details/student-details.component';
 
 
 const studentRoute: Routes= [
-    {   path:'',                            redirectTo:'studentList',        pathMatch:'full'},
-    {   path:'studentList',                 component: StudentComponentComponent },
+    {   path:'',                    redirectTo:'studentList',                   pathMatch:'full'    },
+    {   path:'studentList',         component: StudentComponentComponent,            children:           [
+        //{path:'',                   redirectTo:'studentDetails',                pathMatch:'full'    },
+        {path:'studentDetails/:id',     component: StudentDetailsComponent}
+    ] },
     {   path:'editStudent/:id',     component: EditStudentComponent }
 ];
 
@@ -17,7 +21,8 @@ const studentRoute: Routes= [
 @NgModule({
     declarations:[
         StudentComponentComponent,
-        EditStudentComponent
+        EditStudentComponent,
+        StudentDetailsComponent
     ],
     imports:[
         CommonModule,
@@ -29,11 +34,12 @@ const studentRoute: Routes= [
     ],
     exports:[
         StudentComponentComponent,
-        EditStudentComponent
+        EditStudentComponent,
+        StudentDetailsComponent
     ]
 
     })
 
 export  class StudentModule{
-
+    
 }

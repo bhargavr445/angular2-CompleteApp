@@ -9,11 +9,22 @@ import { UserService } from '../users/user.service';
 })
 export class UsersComponent implements OnInit {
 userList:User[];
-  constructor(private userService: UserService) { }
+deleteRespData:number;
+  constructor(private userService: UserService) { 
+
+  }
 
   ngOnInit() {
     this.userService.getAllUserData().subscribe(
       (userDetails:User[])=>this.userList=userDetails,
+      (error)=>console.log(error)
+    );
+  }
+
+  deleteEmp(id){
+    console.log(id);
+    this.userService.deleteEmp(id).subscribe(
+      (delresp:any)=>this.deleteRespData=delresp,
       (error)=>console.log(error)
     );
   }

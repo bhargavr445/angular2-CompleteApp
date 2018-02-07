@@ -7,6 +7,7 @@
             <th>Id</th>
             <th>Dept</th>
             <th>Name</th>
+            <th>Options</th>
           </tr>
         </thead>
         <tbody>
@@ -14,6 +15,10 @@
             <td>{{user.id}}</td>
             <td>{{user.dept}}</td>
               <td>{{user.name}}</td>
+              <td>
+                <button class="btn btn-danger btn-sm" type="submit" (click)=deleteEmp(user.id)>
+                  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+              </td>
           </tr>
         </tbody>
       </table>

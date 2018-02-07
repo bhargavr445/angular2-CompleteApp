@@ -18,6 +18,15 @@ export class UserService{
       );
   }
   
+  deleteEmp(id){
+    return this.http.delete(`${"http://localhost:8080/employee/deleteEmp"}/${id}`).map(
+        (deleteresponse:any)=>{
+            const delResp=deleteresponse.json();
+            return delResp;
+        }
+    );
+  }
+  
   
 
   

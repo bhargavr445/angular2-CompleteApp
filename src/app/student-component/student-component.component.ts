@@ -5,6 +5,7 @@ import { AppService } from '../AppService';
 import { Employee } from '../employee';
 import { Student } from '../student';
 import { StudentService } from './student-service';
+import { ActivatedRoute } from '@angular/router';
 declare var $;
 @Component({
   selector: 'app-student-component',
@@ -45,9 +46,10 @@ export class StudentComponentComponent implements OnInit {
           }
         ];
   constructor(private studentService: StudentService,
-              private router: Router) {
+              private router: Router,
+            private route:ActivatedRoute) {
       this.getStudentData();
-      this.getFirstNames();
+      //this.getFirstNames();
       setTimeout( function(){
         $(function(){
           $('#dt').DataTable();
@@ -109,15 +111,17 @@ export class StudentComponentComponent implements OnInit {
     this.getStudentData();
   }
   editStudent(id){
-    this.router.navigate(['student/editStudent',id],{queryParams:{edit:'445', editNow:'188', }, fragment:'loading'});
+    this.router.navigate(['student/editStudent',id],
+                        {queryParams:{edit:'445', editNow:'188', },   
+                        fragment:'loading'});
   } 
 
-  getFirstNames(){
-    this.studentService.getFirstNames().subscribe(
-      (firstNameList:string[])=>this.firstNames=firstNameList,
-      (error)=> console.log(error)
-    );
-  }
+  // getFirstNames(){
+  //   this.studentService.getFirstNames().subscribe(
+  //     (firstNameList:string[])=>this.firstNames=firstNameList,
+  //     (error)=> console.log(error)
+  //   );
+  // }
 
   getById(selectedId){
     alert(selectedId);
@@ -126,7 +130,13 @@ export class StudentComponentComponent implements OnInit {
   addNewStudentTest(){
     this.studentService.addNewStudentTest(this.newStudentForm.value).subscribe(
       (addResponse: any)=>this.createResponse=addResponse,
-      (error)=> console.log(error)
+      (error)=> console.log(error),
+      ()=>this.getStudentData()
     );
+    
+  }
+  getStudentDetails(id:number){
+    console.log(id);
+      this.router.navigate(['studentDetails', id],{relativeTo:this.route});
   }
 }
