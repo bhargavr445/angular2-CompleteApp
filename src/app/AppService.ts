@@ -80,7 +80,8 @@ export class AppService{
 	  console.log("Edit Service function");
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
-    return this.http.put("http://localhost:7070/MySpringMVC/springMvc/training/updateStudent", student).map(
+		return this.http.put("http://localhost:7070/MySpringMVC/springMvc/training/updateStudent", 
+		student).map(
       (resp:Response)=>{
         const data = resp.json();
         return data;

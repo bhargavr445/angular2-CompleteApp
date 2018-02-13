@@ -11,6 +11,10 @@ export class StudentService{
   getStudentData(){
     return this.http.get("http://localhost:7070/MySpringMVC/springMvc/student/getAllStudents").map(
       (response:Response)=>{
+        if(response.status==404){
+          const noData = "No Data Found";
+          return noData;
+        }
         const studentData = response.json();
         return studentData;
       }
@@ -22,8 +26,11 @@ export class StudentService{
     let options = new RequestOptions({headers: headers});
     return this.http.post("http://localhost:7070/MySpringMVC/springMvc/training/createStudent", newStudentData, options).map(
       (response: Response)=>{
+
+        
         const data= response.json();
         return data;
+        
       }
     );
   }
@@ -55,6 +62,22 @@ export class StudentService{
       (response:Response)=>{
         const data = response.json();
         return data;
+      }
+    );
+  }
+
+  getAddressById(id){
+    return this.http.
+    //get("http://localhost:7070/MySpringMVC/springMvc/address/getAddressById/4")
+    get(`${"http://localhost:7070/MySpringMVC/springMvc/address/getAddressById"}/${id}`)
+    .map(
+      (response:Response)=>{
+        // if(response.status==404){
+        //   const noData = "No record found";
+        //   return noData;
+        // }
+          const data = response.json();
+          return data;
       }
     );
   }

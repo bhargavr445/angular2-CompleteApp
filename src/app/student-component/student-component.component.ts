@@ -26,25 +26,7 @@ export class StudentComponentComponent implements OnInit {
   firstNames: string[];
   reactiveValue :string;
   createResponse:any;
-  idList:[
-    {'id':1},
-      {'id':2},
-      {'id':3}
-  ];
-  teams=[
-          {
-            name:'Va',
-            id:1
-          },
-          {
-            name:'Md',
-            id:2
-          },
-          {
-            name:'Dc',
-            id:3
-          }
-        ];
+  
   constructor(private studentService: StudentService,
               private router: Router,
             private route:ActivatedRoute) {
@@ -58,6 +40,7 @@ export class StudentComponentComponent implements OnInit {
   }
   ngOnChange(){
     this.getStudentData();
+
   }
   ngOnInit() {
     this.newStudentForm= new FormGroup({
@@ -68,7 +51,10 @@ export class StudentComponentComponent implements OnInit {
       });
 
     this.editStudentForm = this.newStudentForm;
-
+    this.studentService.getFirstNames().subscribe(
+      (firstNameList:any[])=>this.firstNames=firstNameList,
+      (error)=> console.log(error)
+    );
   }
 
   getStudentData(){
@@ -116,12 +102,9 @@ export class StudentComponentComponent implements OnInit {
                         fragment:'loading'});
   } 
 
-  // getFirstNames(){
-  //   this.studentService.getFirstNames().subscribe(
-  //     (firstNameList:string[])=>this.firstNames=firstNameList,
-  //     (error)=> console.log(error)
-  //   );
-  // }
+  getFirstNames(){
+    
+  }
 
   getById(selectedId){
     alert(selectedId);
@@ -136,7 +119,6 @@ export class StudentComponentComponent implements OnInit {
     
   }
   getStudentDetails(id:number){
-    console.log(id);
       this.router.navigate(['studentDetails', id],{relativeTo:this.route});
   }
 }

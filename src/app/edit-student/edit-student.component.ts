@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AppService } from '../AppService';
 import { Employee } from '../employee';
 import { Student } from '../student';
@@ -25,7 +25,8 @@ idList:number[];
 subscribeParams : Subscription;
 
   constructor(private appService: AppService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+            private router: Router) {
     this.editStudentForm= new FormGroup({
       'id': new FormControl(null, Validators.required),
       'fName': new FormControl(null, Validators.required),
@@ -81,6 +82,7 @@ subscribeParams : Subscription;
       (deleteResponse:any)=>this.dResponse=deleteResponse,
       (error)=>console.log(error)
     );
+    this.router.navigate(['student/studentList']);
  }
  getDetails(id:number){
    
