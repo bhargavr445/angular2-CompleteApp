@@ -68,10 +68,10 @@ export class StudentComponentComponent implements OnInit {
   submitNewStudent(){
     this.studentFormShow=false;
     // console.log(this.newStudentForm.value);
-    this.studentService.submitNewStudent(this.newStudentForm.value).subscribe(
-      (respData: number)=>this.result=respData,
-      (error)=>console.log(error)
-    );
+    // this.studentService.submitNewStudent(this.newStudentForm.value).subscribe(
+    //   (respData: number)=>this.result=respData,
+    //   (error)=>console.log(error)
+    // );
     //this.newStudentForm.reset();
     this.getStudentData();
     this.showAddButton=true;
