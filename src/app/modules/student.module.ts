@@ -10,10 +10,10 @@ import { StudentDetailsComponent } from '../student-component/student-details/st
 
 const studentRoute: Routes= [
     {   path:'',                    redirectTo:'studentList',                   pathMatch:'full'    },
-    {   path:'studentList',         component: StudentComponentComponent,            children:           [
-        //{path:'',                   redirectTo:'studentDetails',                pathMatch:'full'    },
-        {path:'studentDetails/:id',     component: StudentDetailsComponent}
-    ] },
+    {   path:'studentList',         component: StudentComponentComponent,       children:[
+        {   path:'studentDetails/:id',     component: StudentDetailsComponent   }
+    ]
+     },
     {   path:'editStudent/:id',     component: EditStudentComponent }
 ];
 

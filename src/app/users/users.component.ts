@@ -21,7 +21,7 @@ deleteRespData:number;
     );
   }
 
-  deleteEmp(id){
+  deleteEmp(id) {
     console.log(id);
     this.userService.deleteEmp(id).subscribe(
       (delresp:any)=>this.deleteRespData=delresp,

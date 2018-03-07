@@ -11,10 +11,6 @@ export class StudentService{
   getStudentData(){
     return this.http.get("http://localhost:7070/MySpringMVC/springMvc/student/getAllStudents").map(
       (response:Response)=>{
-        if(response.status==404){
-          const noData = "No Data Found";
-          return noData;
-        }
         const studentData = response.json();
         return studentData;
       }
@@ -81,7 +77,14 @@ export class StudentService{
       }
     );
   }
-
+  getStudentByFName(fName:string){
+    return this.http.get(`${"http://localhost:7070/MySpringMVC/springMvc/training/getDetailsByName"}/${fName}`).map(
+      (response:Response)=>{
+        const data=response.json();
+        return data;
+      }
+    );
+  }
  
 
 }

@@ -44,7 +44,7 @@ showAddress:boolean=false;
   // }
   getAddress(id:number){
     console.log(id);
-    this.studentService.getAddressById(id).subscribe(
+    this.studentService.getAddressById(this.id).subscribe(
       (studentAddress:any)=>//console.log(studentAddress),
     //   this.address=studentAddress,
     //  (error)=> console.log(error)
@@ -69,6 +69,5 @@ showAddress:boolean=false;
         this.getAddress(this.id); 
        }
      );
-     
   }
 }

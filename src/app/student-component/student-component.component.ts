@@ -26,10 +26,11 @@ export class StudentComponentComponent implements OnInit {
   firstNames: string[];
   reactiveValue :string;
   createResponse:any;
+  studentRecord:Student;
   
   constructor(private studentService: StudentService,
               private router: Router,
-            private route:ActivatedRoute) {
+              private route:ActivatedRoute) {
       this.getStudentData();
       //this.getFirstNames();
       setTimeout( function(){
@@ -40,8 +41,8 @@ export class StudentComponentComponent implements OnInit {
   }
   ngOnChange(){
     this.getStudentData();
-
   }
+
   ngOnInit() {
     this.newStudentForm= new FormGroup({
         'id': new FormControl(null, Validators.required),
@@ -107,7 +108,6 @@ export class StudentComponentComponent implements OnInit {
   }
 
   getById(selectedId){
-    alert(selectedId);
   }
 
   addNewStudentTest(){
@@ -120,5 +120,12 @@ export class StudentComponentComponent implements OnInit {
   }
   getStudentDetails(id:number){
       this.router.navigate(['studentDetails', id],{relativeTo:this.route});
+  }
+  getStudentByFName(fName:string){
+    this.studentService.getStudentByFName(fName).subscribe(
+      (studentRec:any)=>console.log(studentRec),
+      //this.studentRecord=studentRec,
+      (error)=> console.log(error)
+    );
   }
 }

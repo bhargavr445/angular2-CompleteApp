@@ -1,3 +1,7 @@
+<form>
+  <input type="text" id="fName" name="fName" [(ngModel)]="fName" placeholder="First Name">
+  <button class="btn btn-primary" (click)="getStudentByFName(fName)">Search By FName</button>
+</form>
 <!-- <div class="container">
     <div class="row">
       <div class="col-sm-12">
