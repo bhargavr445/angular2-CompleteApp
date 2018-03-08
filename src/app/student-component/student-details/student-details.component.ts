@@ -45,18 +45,10 @@ showAddress:boolean=false;
   getAddress(id:number){
     console.log(id);
     this.studentService.getAddressById(this.id).subscribe(
-      (studentAddress:any)=>//console.log(studentAddress),
-    //   this.address=studentAddress,
-    //  (error)=> console.log(error)
+      (data)=>
        {
-        if(studentAddress.length!=0){
-        this.address=studentAddress; 
-        }
-        else{
-         console.log("null caught"); 
-        }
-        (error)=> console.log(error)
-      }
+         this.address=data;
+       }
     );
     }
 

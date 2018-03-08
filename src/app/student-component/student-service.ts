@@ -60,8 +60,8 @@ export class StudentService{
     );
   }
 
-  getAddressById(id):Observable<Address[]>{
-    return this.httpC.get<Address[]>(`${"http://localhost:7070/MySpringMVC/springMvc/address/getAddressById"}/${id}`);
+  getAddressById(id):Observable<Address>{
+    return this.httpC.get<Address>(`${"http://localhost:7070/MySpringMVC/springMvc/address/getAddressById"}/${id}`);
     
   }
   getStudentByFName(fName:string){

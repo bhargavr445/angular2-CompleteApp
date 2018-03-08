@@ -61,9 +61,13 @@ export class StudentComponentComponent implements OnInit {
   }
 
   getStudentData(){
-    this.studentService.getStudentData().subscribe(
-      (studentList:Student[])=>this.Students=studentList,
-      (error)=> console.log(error)
+    this.studentService.getStudentData()
+    .subscribe(
+      data=>{
+        this.Students=data;
+      }
+      // (studentList:Student[])=>this.Students=studentList,
+      // (error)=> console.log(error)
     );
     this.showAddButton=true;
   }
