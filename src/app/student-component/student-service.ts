@@ -4,14 +4,15 @@ import {  HttpClient } from '@angular/common/http';
 import 'rxjs/Rx';
 import { Student } from '../student';
 import { Observable } from 'rxjs/Observable';
+import { Address } from '../model/Address';
 
 @Injectable()
 export class StudentService{
-  constructor(private http: HttpClient){
+  constructor(private httpC: HttpClient, private http: Http){
 
   }
   getStudentData():Observable<Student[]>{
-    return this.http.get<Student[]>("http://localhost:7070/MySpringMVC/springMvc/student/getAllStudents");
+    return this.httpC.get<Student[]>("http://localhost:7070/MySpringMVC/springMvc/student/getAllStudents");
   }
 
   // submitNewStudent(newStudentData:any[]){
@@ -59,20 +60,9 @@ export class StudentService{
     );
   }
 
-  getAddressById(id){
-    return this.http.
-    //get("http://localhost:7070/MySpringMVC/springMvc/address/getAddressById/4")
-    get(`${"http://localhost:7070/MySpringMVC/springMvc/address/getAddressById"}/${id}`)
-    .map(
-      (response:Response)=>{
-        // if(response.status==404){
-        //   const noData = "No record found";
-        //   return noData;
-        // }
-          const data = response.json();
-          return data;
-      }
-    );
+  getAddressById(id):Observable<Address[]>{
+    return this.httpC.get<Address[]>(`${"http://localhost:7070/MySpringMVC/springMvc/address/getAddressById"}/${id}`);
+    
   }
   getStudentByFName(fName:string){
     return this.http.get(`${"http://localhost:7070/MySpringMVC/springMvc/training/getDetailsByName"}/${fName}`).map(

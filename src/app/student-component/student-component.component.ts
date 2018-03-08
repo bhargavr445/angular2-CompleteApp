@@ -6,6 +6,7 @@ import { Employee } from '../employee';
 import { Student } from '../student';
 import { StudentService } from './student-service';
 import { ActivatedRoute } from '@angular/router';
+import { LocalStorageService } from '../localStorageService';
 declare var $;
 @Component({
   selector: 'app-student-component',
@@ -30,7 +31,8 @@ export class StudentComponentComponent implements OnInit {
   
   constructor(private studentService: StudentService,
               private router: Router,
-              private route:ActivatedRoute) {
+              private route:ActivatedRoute,
+              private localStorageService: LocalStorageService) {
       this.getStudentData();
       //this.getFirstNames();
       setTimeout( function(){

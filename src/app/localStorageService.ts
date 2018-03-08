@@ -5,7 +5,7 @@ import { TokenParams } from "./model/tokenParams";
 export class LocalStorageService {
 
     public setAuthData(auth : TokenParams):void{
-
+        localStorage.setItem("Authorization", JSON.stringify(auth));
     }
 
     public getAuthData(): TokenParams{
