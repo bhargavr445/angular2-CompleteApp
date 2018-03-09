@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http, Response, RequestOptions } from '@angular/http';
+import { HttpRequest } from '@angular/common/http';
 import {  HttpClient } from '@angular/common/http'; 
 import 'rxjs/Rx';
 import { Student } from '../student';
@@ -12,6 +13,8 @@ export class StudentService{
 
   }
   getStudentData():Observable<Student[]>{
+    // const req=new HttpRequest('GET','http://localhost:7070/MySpringMVC/springMvc/student/getAllStudents',{});
+    // return this.httpC.request(req);
     return this.httpC.get<Student[]>("http://localhost:7070/MySpringMVC/springMvc/student/getAllStudents");
   }
 

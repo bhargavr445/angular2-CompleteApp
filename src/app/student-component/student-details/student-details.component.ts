@@ -18,7 +18,7 @@ emptyAddress:string;
 showAddress:boolean=false;
 //@Input() studentId: number;
   constructor(private studentService: StudentService, 
-              private router: ActivatedRoute){
+              private router: ActivatedRoute){ 
 
   }
   // getAddress(id:number){
@@ -42,8 +42,7 @@ showAddress:boolean=false;
   //   );
     
   // }
-  getAddress(id:number){
-    console.log(id);
+  getAddress(id:number): any{
     this.studentService.getAddressById(this.id).subscribe(
       (data)=>
        {
