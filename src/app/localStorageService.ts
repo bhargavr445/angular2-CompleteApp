@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { TokenParams } from "./model/tokenParams";
+import { HttpClientModule, HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class LocalStorageService {
@@ -9,6 +10,7 @@ export class LocalStorageService {
     }
 
     public getAuthData(): TokenParams{
-        return null;
+        let tokenData=JSON.parse(localStorage.getItem("Authorization"));
+        return tokenData==null ? null:tokenData;
     }
 }

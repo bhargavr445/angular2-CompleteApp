@@ -10,9 +10,10 @@ export class AuthService{
     constructor(private http: HttpClient){
 
     }
-    logIn():Observable<TokenParams>{
-        //new Headers({'Content-type':'application'});
-       return this.http.get<TokenParams>("");
+    logIn(userName:string):Observable<TokenParams>{
+        const header=new Headers({'Content-type':'application/json'});
+        console.log("Auth Service");
+       return this.http.post<TokenParams>("http://localhost:7070/MySpringMVC/springMvc/student/logIn", userName);
     }
 
 }

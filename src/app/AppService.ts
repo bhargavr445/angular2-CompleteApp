@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http, Response, RequestOptions } from '@angular/http'
+//import {HttpClient, HttpClientModule} from '@angular/common/http';
 //import 'rxjs/Rx/add/operator/map';
 import 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
+import { Student } from './student';
 
 
 @Injectable()
@@ -13,7 +16,7 @@ export class AppService{
 	constructor(private http: Http){
 
 	}
-	getData(){
+	getData():Observable<Student[]>{
 	console.log('I am working');
 		return this.http.get('http://localhost:7070/MySpringMVC/springMvc/student/getAllStudents')
 		.map(

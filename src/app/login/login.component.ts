@@ -8,7 +8,7 @@ import { AuthService } from '../login/AuthService';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+userName:string;
   constructor(private authService:AuthService, 
               private localStorageService: LocalStorageService) { 
 
@@ -17,9 +17,12 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   logIn():void{
-    this.authService.logIn().subscribe(
-      
-    );
+     this.authService.logIn(this.userName).subscribe(
+       (data)=>{
+         this.localStorageService.setAuthData(data);
+         console.log(data);
+       }
+     );
   }
 
 }

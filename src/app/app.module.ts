@@ -10,6 +10,7 @@ import { AppService } from './AppService';
 import { eRouting } from './module-routing/employee-routing';
 import { sRouting } from './module-routing/student-routing';
 import { uRouting } from './module-routing/user-routing';
+import { lRouting } from './module-routing/login-routing';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { uRouting } from './module-routing/user-routing';
     SelectModule,
     eRouting,
     sRouting,
-    uRouting
+    uRouting,
+    lRouting
   ],
   providers: [AppService],
   bootstrap: [AppComponent]

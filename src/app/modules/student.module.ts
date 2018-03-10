@@ -6,8 +6,7 @@ import { StudentService } from '../student-component/student-service';
 import { SharedModule } from '../shared.module';
 import { EditStudentComponent} from '../edit-student/edit-student.component';
 import { StudentDetailsComponent } from '../student-component/student-details/student-details.component';
-import { LocalStorageService } from '../localStorageService'; 
-
+import { InterceptorModule } from '../interceptor.module';
 const studentRoute: Routes= [
     {   path:'',                    redirectTo:'studentList',                   pathMatch:'full'    },
     {   path:'studentList',         component: StudentComponentComponent,       children:[
@@ -27,11 +26,11 @@ const studentRoute: Routes= [
     imports:[
         CommonModule,
         SharedModule,
+        InterceptorModule,
         RouterModule.forChild(studentRoute)
     ],
     providers:[
-        StudentService,
-        LocalStorageService
+        StudentService
     ],
     exports:[
         StudentComponentComponent,

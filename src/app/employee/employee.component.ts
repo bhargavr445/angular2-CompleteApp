@@ -54,10 +54,10 @@ export class EmployeeComponent implements OnInit {
   }
 
   getAllStudents(){
-    console.log("Get Students function");
     this.employeeService.getAllStudents().
-    subscribe((studentData: Employee[])=> this.Employees=studentData,
-    (error)=> console.log(error));
+    subscribe((data)=> 
+    {this.Employees=data
+    });
       this.hideButton=true;
   }
 
