@@ -13,4 +13,8 @@ export class LocalStorageService {
         let tokenData=JSON.parse(localStorage.getItem("Authorization"));
         return tokenData==null ? null:tokenData;
     }
+
+    clearData(){
+        localStorage.clear();
+    }
 }

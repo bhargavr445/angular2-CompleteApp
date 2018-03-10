@@ -22,10 +22,18 @@ userName:string;
        (data)=>{
          this.localStorageService.setAuthData(data);
          console.log(data);
-         this.router.navigate(['/employee/employeeList']);
+         if(this.userName!=null){
+          this.router.navigate(['/employee/employeeList']);
+         }
+         
        }
        
      );
   }
+  logOut(){
+    this.localStorageService.clearData();
+    this.router.navigate(['./login']);
+  }
+  
 
 }
