@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from '../localStorageService';
 import { AuthService } from '../login/AuthService';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { AuthService } from '../login/AuthService';
 export class LoginComponent implements OnInit {
 userName:string;
   constructor(private authService:AuthService, 
-              private localStorageService: LocalStorageService) { 
+              private localStorageService: LocalStorageService, private router: Router) { 
 
               }
 
@@ -21,7 +22,9 @@ userName:string;
        (data)=>{
          this.localStorageService.setAuthData(data);
          console.log(data);
+         this.router.navigate(['/employee/employeeList']);
        }
+       
      );
   }
 
