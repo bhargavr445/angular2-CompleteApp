@@ -7,10 +7,9 @@ import { SelectModule } from 'angular2-select';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AppService } from './AppService';
-import { eRouting } from './module-routing/employee-routing';
-import { sRouting } from './module-routing/student-routing';
 import { uRouting } from './module-routing/user-routing';
 import { lRouting } from './module-routing/login-routing';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -22,8 +21,7 @@ import { lRouting } from './module-routing/login-routing';
     HttpModule,
     ReactiveFormsModule,
     SelectModule,
-    eRouting,
-    sRouting,
+    AppRoutingModule,
     uRouting,
     lRouting
   ],

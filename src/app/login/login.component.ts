@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 userName:string;
+logInShow:boolean=true;
   constructor(private authService:AuthService, 
               private localStorageService: LocalStorageService, private router: Router) { 
 
@@ -22,6 +23,7 @@ userName:string;
        (data)=>{
          this.localStorageService.setAuthData(data);
          console.log(data);
+        
          if(this.userName!=null){
           this.router.navigate(['/employee/employeeList']);
          }

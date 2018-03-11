@@ -1,5 +1,7 @@
 import {RouterModule, Routes} from '@angular/router';
+import { NgModule } from '@angular/core';
 import { ModuleWithProviders } from '@angular/core';
+
 
 const logInModuleRouting: Routes=[
     

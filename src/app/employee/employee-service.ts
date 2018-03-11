@@ -2,21 +2,18 @@ import { Injectable } from '@angular/core';
 import { Headers, Http, Response } from '@angular/http'
 import 'rxjs/Rx';
 import { Employee } from '../employee';
+import { Observable } from 'rxjs/Observable';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @Injectable()
 export class EmployeeService{
-  constructor(private http: Http){
+  constructor(private httpC: HttpClient, private http:Http){
 
   }
 
-  getAllStudents(){
-		return this.http.get("http://localhost:7070/MySpringMVC/springMvc/training/getAllEmp").map(
-			(response:Response)=>{
-				const data = response.json();
-				return data;
-			}
-		);
+  getAllStudents():Observable<Employee[]>{
+		return this.httpC.get<Employee[]>("http://localhost:7070/MySpringMVC/springMvc/training/getAllEmp");
 	}
 
 	getDataToEdit(id){
