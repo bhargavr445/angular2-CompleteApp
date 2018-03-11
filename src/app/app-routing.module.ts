@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { Router } from '@angular/router/src/router';
 const appRoutes:Routes=[
   {path:'employee',       loadChildren:'app/modules/employee.module#EmployeeModule'},
@@ -9,7 +9,8 @@ const appRoutes:Routes=[
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules}
+    )
   ],
   exports:[RouterModule],
   declarations: []
