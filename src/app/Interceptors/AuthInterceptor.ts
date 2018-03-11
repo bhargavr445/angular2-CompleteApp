@@ -8,12 +8,12 @@ import { LocalStorageService } from "../localStorageService";
 export class AuthInterceptor implements HttpInterceptor{
     constructor(private localStorageService: LocalStorageService){}
     intercept(req:HttpRequest<any>, next:HttpHandler): Observable<HttpEvent<any>>{
-        console.log(req);
+        //console.log(req);
         var tokendata = this.localStorageService.getAuthData();
         var authHeader = 'Bearer'+tokendata.accessToken;
         const authReq=req.clone({setHeaders:{Authorization:authHeader}});
-        console.log("Cloned and modified Req");
-        console.log(authReq);
+        //console.log("Cloned and modified Req");
+        //console.log(authReq);
         return next.handle(authReq);
     }
 

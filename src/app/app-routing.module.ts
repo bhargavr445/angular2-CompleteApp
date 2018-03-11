@@ -2,17 +2,22 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { Router } from '@angular/router/src/router';
+import { AppPreloadingStrategy } from './AppPreloadingStrategy';
 const appRoutes:Routes=[
-  {path:'employee',       loadChildren:'app/modules/employee.module#EmployeeModule'},
-  {path:'student',        loadChildren:'app/modules/student.module#StudentModule'}
+  {path:'employee',       loadChildren:'app/modules/employee.module#EmployeeModule',      data: { preload: true }},
+  {path:'student',        loadChildren:'app/modules/student.module#StudentModule',        data: { preload: false }}
 ];
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules}
+    RouterModule.forRoot(appRoutes, {preloadingStrategy: AppPreloadingStrategy}
     )
   ],
   exports:[RouterModule],
-  declarations: []
+  declarations: [],
+  providers:[AppPreloadingStrategy]
 })
 export class AppRoutingModule { }
+
+
+
