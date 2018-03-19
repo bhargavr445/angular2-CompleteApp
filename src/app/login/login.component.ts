@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-userName:string;
+userName:string="bhargav";
 logInShow:boolean=true;
   constructor(private authService:AuthService, 
               private localStorageService: LocalStorageService, private router: Router) { 

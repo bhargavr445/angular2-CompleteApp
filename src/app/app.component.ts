@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import { Employee } from './employee';
 import { Student } from './student';
@@ -11,6 +11,7 @@ import { AppService } from './AppService';
 })
 
 export class AppComponent implements OnInit {
+    @Input() userNameC;
     Employees: Employee[];
     gamesList: FormGroup;
     firstNames:string[];

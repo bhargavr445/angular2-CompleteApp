@@ -1,0 +1,151 @@
+
+<div class="container blue">
+	<div ng-init="showCars=false">
+		<ul ng-repeat="list in detailsList">
+		<div >
+		<ui>
+			<li style="text-align:left;float:left; padding-left:30px">Name{{details.name}}</li>
+			<a style="text-align:right;float:right; padding-top:20px; padding-right:20px;    font-size: 40px " href="" ng-show="!showCars" ng-click="showCars=!showCars">+</a>
+					<a style="text-align:right;float:right;  padding-top:20px; padding-right:20px;     font-size: 40px "  href="" ng-show="showCars" ng-click="showCars=!showCars">-</a>
+			<li>{{details.city}}</li>
+			</div>
+			<div ng-show="showCars">
+				<li>Hello{{details.rent}}</li>
+			</div>
+		</ul>
+	</div>
+</div> --> 
+<!--<ul ng-repeat="list in detailsList">
+	<div class="container customer" ng-init="showDetails=false">
+		<div>	
+			<li><span class="user-name">{{list.name}}</span>
+					<a class="action" href=""
+				ng-show="!showDetails" ng-click="showDetails=!showDetails">+</a>
+				<a
+				class="action" href="" ng-show="showDetails"
+				ng-click="showDetails=!showDetails">-</a>
+			</li>
+		</div>
+		<div ng-show="showDetails">
+			<label>Searched Data</label>
+			<h4>{{list.city}}</h4>
+			<label>Searched Data</label>
+			<li>{{list.rent}}</li>
+		</div>
+	</div>
+</ul> -->
+<div class="block">
+	<h4>Your estimated total monthly bill is $319.06</h4>
+	<button class="button button4">Add line</button>
+</div>
+
+
+<!-- <div class="foo blue">
+</div>
+<div class="foo blue">
+</div>
+<div class="foo blue">
+</div> -->
+<div>
+<div class="wrapper">
+	<div class="customer" ng-init="showDetails=false"
+		ng-repeat="list in detailsList">
+		<div class="block">
+			<p>
+				<span class="user-name">{{list.name}}'s line</span> <span><a
+					class="action" href="" ng-show="!showDetails"
+					ng-click="showDetails=!showDetails">+</a> <a class="action" href=""
+					ng-show="showDetails" ng-click="showDetails=!showDetails">-</a> </span>
+			</p>
+			<div>
+				<p class="user-phone">{{list.phoneNumber}}</p>
+			</div>
+			<div>
+				<a href="">Upgrade eligibility</a>
+			</div>
+			<div>
+				<p class="right">
+					est.line costs: $ <span class="bold">{{list.estLineCost}}</span>
+				</p>
+			</div>
+			<p>
+				<span class="bold">Effective Date</span> <span class="right">$
+					{{list.effectiveDate}}</span>
+			</p>
+			<p>
+				<span class="bold">Account Level Charges & Credits </span> <span class="right bold">$
+					{{list.accountLevelChargesAndCredits}}</span>
+			</p>
+		</div>
+		<div class="block" ng-show="showDetails">
+			<p>
+				<span class="bold">Effective Date</span> <span class="right">$
+					{{list.effectiveDate}}</span>
+			</p>
+			<p>
+				<span class="bold">Data Usage</span>
+			</p>
+			<p>
+				<span class="bold">Products & Apps <a href="">Manage</a></span> <span class="right bold">$
+					{{list.productsAndApps}}</span>
+			</p>
+			<p>
+				<span>Verizon Cloud-25 GB</span> <span class="right">$
+					{{list.verizonCloud}}</span>
+			</p>
+			<p>
+				<span>Road Side Assistance</span> <span class="right">$
+					{{list.roadSideAssistance}}</span>
+			</p>
+			<p>
+				<span>Total Mobile Protection</span> <span class="right">$
+					{{list.totalMobileProtection}}</span>
+			</p>
+			<p>
+				<span>Family Base Child</span> <span class="right">$
+					{{list.familyBaseChild}}</span>
+			</p>
+			<p>
+				<span>HD Voice</span> <span class="right">$ {{list.hdVoice}}</span>
+			</p>
+			<p>
+				<span class="bold">International Options <a href="">Manage</a></span> <span class="right bold">$
+					{{list.internationalOptions}}</span>
+			</p>
+			<p>
+				<span>Mexico & Canada</span> <span class="right">$
+					{{list.mexicoAndCanada}}</span>
+			</p>
+			<p>
+				<span class="bold">Promos & Discounts</span>
+			</p>
+			<p>
+				<span>FREE 25GB CLOUD</span> <span class="right">
+					{{list.freeCloud}}</span>
+			</p>
+			<p>
+				<span>50%-Access Discount On eligible...</span> <span class="right">
+					{{list.accessDiscountOnEligible}}</span>
+			</p>
+			<hr>
+			<p>
+				<span class="bold">Device</span>
+			</p>
+			<p>
+				<span class="regular"><a href="">{{list.deviceName}}</a></span> <span class="right">
+					{{list.amountPaidInPercentage}}% paid</span>
+			</p>
+			<!-- <p><span class="bold">Amount Paid:</span> <span class="right">$ {{list.amountPaidInPercentage}}</span></p> -->
+			<p>
+				<span class="regular"> <a href="">View Agreement Details</a></span> <span class="right">$
+					{{list.viewAgreementDetails}}</span>
+			</p>
+
+			<div class="block ">
+				<button class="button button4">See upgrade options</button>
+				<button class="button button5">Pay off device</button>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

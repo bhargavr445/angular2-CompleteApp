@@ -1,12 +1,10 @@
-import { Observable } from 'rxjs/Observable';
 import { PreloadingStrategy, Route } from '@angular/router';
 
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+
 export class AppPreloadingStrategy implements PreloadingStrategy {
-    preload(route: Route, preload: Function): Observable<any> {
-        if (route.data && route.data.preload) {
-          return preload();
-        } else {
-          return Observable.of(null);
-        }
-      }
+  preload(route: Route, load: Function): Observable<any> {
+    return route.data && route.data.preload ? load() : Observable.of(null);
   }
+}
