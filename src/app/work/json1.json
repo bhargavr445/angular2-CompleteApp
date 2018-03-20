@@ -101,3 +101,102 @@ $http.get('Data/details.json').then(function(response){
 		$scope.detailsList=response.data;
 		$log.info($scope.detailsList);
 	})
+
+
+	/////////
+	[
+		{
+			"name":"Dale",
+			"city": "California",
+			"phoneNumber":"985.764.3214",
+			"estLineCost":"99.72",
+			"accountLevelChargesAndCredits":5.01,
+			"AccLevelChargesCredits":5.01,
+			"familyBase":4.99,
+			"autoPayPaperFreeDiscount":20.00,
+			"effectiveDate":"05/30/2018",
+			"dataUsage":"",
+			"productsAndApps":16.99,
+			"verizonCloud":2.99,
+			"roadSideAssistance":3.00,
+			"totalMobileProtection":11.00,
+			"familyBaseChild":0.00,
+			"hdVoice":0.00,
+			"internationalOptions":0.00,
+			"mexicoAndCanada":0.00,
+			"promosAndDiscounts":"",
+			"freeCloud":"No Expiration date",
+			"accessDiscountOnEligible":"No Expiration date",
+			"deviceName":"Iphone X 64GB in Black & White",
+			"amountPaidInPercentage":63,
+			"viewAgreementDetails":23.99
+			
+		},
+		{
+			"name":"Eric",
+			"phoneNumber":"985.764.3212",
+			"estLineCost":"99.72",
+			"beyondUnlimited":60,
+			"effectiveDate":"05/30/2018",
+			"dataUsage":"",
+			"productsAndApps":16.99,
+			"verizonCloud":2.99,
+			"roadSideAssistance":3.00,
+			"totalMobileProtection":11.00,
+			"familyBaseChild":0.00,
+			"hdVoice":0.00,
+			"internationalOptions":0.00,
+			"mexicoAndCanada":0.00,
+			"promosAndDiscounts":"",
+			"freeCloud":"No Expiration date",
+			"accessDiscountOnEligible":"No Expiration date",
+			"deviceName":"Google Pixel 2XL 64GB in Black & White",
+			"amountPaidInPercentage":63,
+			"viewAgreementDetails":23.99
+			
+		},
+		{
+			"name":"Sara",
+			"phoneNumber":"985.764.3214",
+			"estLineCost":"99.72",
+			"beyondUnlimited":60,
+			"effectiveDate":"05/30/2018",
+			"dataUsage":"",
+			"productsAndApps":16.99,
+			"verizonCloud":2.99,
+			"roadSideAssistance":3.00,
+			"totalMobileProtection":11.00,
+			"familyBaseChild":0.00,
+			"hdVoice":0.00,
+			"internationalOptions":0.00,
+			"mexicoAndCanada":0.00,
+			"promosAndDiscounts":"",
+			"freeCloud":"No Expiration Date",
+			"accessDiscountOnEligible":"No Expiration Date",
+			"deviceName":"Google Pixel 2XL 64GB in Black & White",
+			"amountPaidInPercentage":63,
+			"viewAgreementDetails":23.99
+		},
+		{
+			"name":"June",
+			"phoneNumber":"985.764.3216",
+			"estLineCost":"99.72",
+			"beyondUnlimited":60,
+			"effectiveDate":"05/30/2018",
+			"dataUsage":"",
+			"productsAndApps":16.99,
+			"verizonCloud":2.99,
+			"roadSideAssistance":3.00,
+			"totalMobileProtection":11.00,
+			"familyBaseChild":0.00,
+			"hdVoice":0.00,
+			"internationalOptions":0.00,
+			"mexicoAndCanada":0.00,
+			"promosAndDiscounts":"",
+			"freeCloud":"No Expiration date",
+			"accessDiscountOnEligible":"No Expiration date",
+			"deviceName":"Google Pixel 2XL 64GB in Black & White",
+			"amountPaidInPercentage":63,
+			"viewAgreementDetails":23.99
+		}
+	]
