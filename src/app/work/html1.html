@@ -432,3 +432,153 @@
           <label class="control-label col-lg-4">{{car}}</label>
         </div>
       </div> -->
+	  <div class="FullContainer subContainer left BillingAndImage">
+
+		<div class="FullContainer subContainer left subbilling">
+		<h1>My plans<h1>
+		<spam class="planName"><p>You're on the {{data.plan}} plan.</p></spam>
+		 </div>
+		 <div class="FullContainer subContainer left subbilling">
+			<h1>Your estimated total</h1>
+		<h1>monthly bill is {{data.totalBill}}</h1>
+		 </div>
+	  
+		<div class="image">
+		<p class="imageline1">unlimited </p>
+		<p class="imageline1 imageline2">for all</p>
+		<div class="imageDesc">
+		 <p class="imagedesc1">More choices on</p>
+		  <p class="imagedesc2">the best network.</p>
+		  <p  class="imagedesc1 last"><a href="">Learn more</a></p>
+		  </div>
+	  
+	  </div>
+		</div>
+		
+		
+		<div >
+		  <div class="wrap members">
+			  <div class="wrapper">
+				  <div class="customer" ng-init="showDetails=false"
+					  ng-repeat="list in data.dataList">
+					  <div class="block default">
+						  <p >
+							  <span class="user-name">{{list.name}}'s line 
+							  <span id="acc"
+								  ng-if="$index==0" ng-init="showDetails = true">Account owner</span></span> 
+								  
+								  
+								  <span>
+								  <a
+								  class="action" href="" ng-show="!showDetails"
+								  ng-click="showDetails=!showDetails">+</a> 
+								  
+								  
+								  <a class="action"
+								  href="" ng-show="showDetails" ng-click="showDetails=!showDetails">-</a>
+							  </span>
+						  </p>
+						  <p class="user-phone">{{list.phoneNumber}}</p>
+						  <p>
+							  <a href="">Upgrade eligibility</a>
+						  </p>
+						  <p>
+							  <span class="bold"></span> <span class="right bold">
+								  est.line costs: ${{list.estLineCost}}</span>
+						  </p>
+						  <p ng-if="$index==0 && showDetails==true">
+							  <span class="bold">FamilyBase</span> <span class="right">$
+								  {{list.familyBase}}</span>
+						  </p>
+						  <p ng-if="$index==0 && showDetails==true">
+							  <span class="bold">Account Level Charges & Credits </span> <span
+								  class="right bold">$
+								  {{list.accountLevelChargesAndCredits}}</span>
+						  </p>
+						  <p ng-if="$index==0 && showDetails==true">
+							  <span class="bold">Auto Pay & Paper Free Discount </span> <span
+								  class="right bold">$ {{list.autoPayPaperFreeDiscount}}</span>
+						  </p>
+					  </div>
+					  <div class="block" ng-show="showDetails">
+						  <hr ng-if="$index==0 && showDetails==true">
+						  <p>
+							  <span ng-if="$index==0 && showDetails==true" class="bold">Line
+								  Level Charges & Credits</span>
+						  </p>
+						  <p>
+							  <span class="bold">Effective Date</span> <span class="right">$
+								  {{list.effectiveDate}}</span>
+						  </p>
+						  <p>
+							  <span class="bold">Data Usage</span>
+						  </p>
+						  <p>
+							  <span class="bold">Products & Apps <a href="">Manage</a></span> <span
+								  class="right bold">$ {{list.productsAndApps}}</span>
+						  </p>
+						  <p>
+							  <span>Verizon Cloud-25 GB</span> <span class="right">$
+								  {{list.verizonCloud}}</span>
+						  </p>
+						  <p>
+							  <span>Road Side Assistance</span> <span class="right">$
+								  {{list.roadSideAssistance}}</span>
+						  </p>
+						  <p>
+							  <span>Total Mobile Protection</span> <span class="right">$
+								  {{list.totalMobileProtection}}</span>
+						  </p>
+						  <p>
+							  <span>Family Base Child</span> <span class="right">$
+								  {{list.familyBaseChild}}</span>
+						  </p>
+						  <p>
+							  <span>HD Voice</span> <span class="right">$
+								  {{list.hdVoice}}</span>
+						  </p>
+						  <p>
+							  <span class="bold">International Options <a href="">Manage</a></span>
+							  <span class="right bold">$ {{list.internationalOptions}}</span>
+						  </p>
+						  <p>
+							  <span>Mexico & Canada</span> <span class="right">$
+								  {{list.mexicoAndCanada}}</span>
+						  </p>
+						  <p>
+							  <span class="bold">Promos & Discounts</span>
+						  </p>
+						  <p>
+							  <span>FREE 25GB CLOUD</span> <span class="right">
+								  {{list.freeCloud}}</span>
+						  </p>
+						  <p>
+							  <span>50% - Access Discount On eligible...</span> <span
+								  class="right"> {{list.accessDiscountOnEligible}}</span>
+						  </p>
+						  <hr>
+						  <p>
+							  <span class="bold">Device</span>
+						  </p>
+						  <p>
+							  <span class="regular"><a href="">{{list.deviceName}}</a></span> <span
+								  class="right"> {{list.amountPaidInPercentage}}% paid</span>
+						  </p>
+						  <!-- <p><span class="bold">Amount Paid:</span> <span class="right">$ {{list.amountPaidInPercentage}}</span></p> -->
+						  <p>
+							  <span class="regular"> <a href="">View Agreement
+									  Details</a></span> <span class="right">$
+								  {{list.viewAgreementDetails}}</span>
+						  </p>
+	  
+						  <div class="block ">
+							  <button class="button primary">See upgrade options</button>
+							  <button class="button secondary">Pay off device</button>
+						  </div>
+					  </div>
+					  
+					  
+				  </div>
+			  </div>
+		  </div>
+	  
