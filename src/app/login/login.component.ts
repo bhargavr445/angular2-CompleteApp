@@ -22,14 +22,11 @@ logInShow:boolean=true;
      this.authService.logIn(this.userName).subscribe(
        (data)=>{
          this.localStorageService.setAuthData(data);
-         console.log(data);
-        
-         if(this.userName!=null){
-          this.router.navigate(['/employee/employeeList']);
+         //console.log(data);
+         if(this.userName!=null) {
+              this.router.navigate(['/employee/employeeList']);
          }
-         
        }
-       
      );
   }
   logOut(){

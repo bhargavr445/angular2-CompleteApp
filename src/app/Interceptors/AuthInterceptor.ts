@@ -8,17 +8,17 @@ import { Headers } from "@angular/http";
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor{
     constructor(private localStorageService: LocalStorageService){}
-    intercept(req:HttpRequest<any>, next:HttpHandler): Observable<HttpEvent<any>>{
-        //console.log(req);
-        const header=new Headers();
-        header.append("content-type","application/json");
-        header.append("auth", "Bearer"+this.localStorageService.getAuthData().accessToken)
-         var tokendata = this.localStorageService.getAuthData();
-         var authHeader = 'Bearer'+tokendata.accessToken;
-        const authReq=req.clone({setHeaders:{Authorization:authHeader}});
-        //console.log("Cloned and modified Req");
-        //console.log(authReq);
-        return next.handle(authReq);
-    }
+        intercept(req:HttpRequest<any>, next:HttpHandler): Observable<HttpEvent<any>>{
+            //console.log(req);
+            const header=new Headers();
+            header.append("content-type","application/json");
+            header.append("auth", "Bearer"+this.localStorageService.getAuthData().accessToken)
+            var tokendata = this.localStorageService.getAuthData();
+            var authHeader = 'Bearer'+tokendata.accessToken;
+            const authReq=req.clone({setHeaders:{Authorization:authHeader}});
+            //console.log("Cloned and modified Req");
+            //console.log(authReq);
+            return next.handle(authReq);
+        }
 
 }

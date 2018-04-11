@@ -4,9 +4,10 @@ import {RouterModule, Routes} from '@angular/router';
 import { EmployeeComponent } from '../employee/employee.component';
     
 
-const employeeRouting: Routes=[
-        {   path:'',                        redirectTo:'employeeList',        pathMatch:'full'},
-        {   path:'employeeList',            component: EmployeeComponent }
+const employeeRouting: Routes   =       [
+        //Made path adjustments 
+        // {   path:'',                        redirectTo:'employeeList',        pathMatch:'full'},
+        {   path:'',            component: EmployeeComponent }//employeeList
 ];
 @NgModule({
         imports:[
