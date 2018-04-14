@@ -3,8 +3,10 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { Router } from '@angular/router';
 import { AppPreloadingStrategy } from './AppPreloadingStrategy';
+import { AuthGuard } from './auth-guard.service';
+
 const appRoutes:Routes=[
-  { path:'employee',       
+  { path:'employee',      
     loadChildren:'app/modules/employee.module#EmployeeModule',    
     data: { preload: true }
   },
@@ -13,6 +15,7 @@ const appRoutes:Routes=[
     data: { preload: true }
   }
 ];
+
 @NgModule({
   imports: [
     CommonModule,
@@ -21,7 +24,7 @@ const appRoutes:Routes=[
   ],
   exports:[RouterModule],
   declarations: [],
-  providers:[AppPreloadingStrategy]
+  providers:[AppPreloadingStrategy, AuthGuard]
 })
 export class AppRoutingModule { }
 

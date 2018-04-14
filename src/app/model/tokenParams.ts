@@ -3,4 +3,5 @@ export class TokenParams{
     tokenType:string;
     expiresIn:string;
     accessToken:string;
+    role:string;
 }

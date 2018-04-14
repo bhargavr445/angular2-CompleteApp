@@ -34,7 +34,7 @@ export class StudentComponentComponent implements OnInit {
               private route:ActivatedRoute,
               private localStorageService: LocalStorageService) {
       this.getStudentData();
-      //this.getFirstNames();
+      this.getFirstNames();
       setTimeout( function(){
         $(function(){
           $('#dt').DataTable();

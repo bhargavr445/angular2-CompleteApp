@@ -23,8 +23,9 @@ logInShow:boolean=true;
        (data)=>{
          this.localStorageService.setAuthData(data);
          //console.log(data);
+        //  alert('log in worked');
          if(this.userName!=null) {
-              this.router.navigate(['/employee/employeeList']);
+              this.router.navigate(['/employee']);
          }
        }
      );
