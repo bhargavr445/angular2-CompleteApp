@@ -12,17 +12,12 @@ export class AuthGuard implements CanActivate{
     }
     canActivate(route: ActivatedRouteSnapshot, 
         state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean{
-            alert('authguard working');
             if(this.localStorageService.getAuthData().role=="admin"){
-                //alert('if authguard working');
-                //console.log(this.localStorageService.getAuthData().userName);
-                //console.log(this.localStorageService.getAuthData().userName);
                 return true;
             }else{
                 console.log(this.localStorageService.getAuthData().role);
                 alert('else authguard working');
                 this.router.navigate(['./login']);
-                //return false;
             }
             
     }
