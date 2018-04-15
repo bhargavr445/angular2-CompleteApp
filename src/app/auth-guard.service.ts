@@ -15,7 +15,6 @@ export class AuthGuard implements CanActivate, CanActivateChild{
             if(this.localStorageService.getAuthData().role=="admin"){
                 return true;
             }else{
-                //console.log(this.localStorageService.getAuthData().role);
                 this.localStorageService.clearData();
                 this.router.navigate(['./login']);
             }    

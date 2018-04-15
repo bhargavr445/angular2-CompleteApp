@@ -1,5 +1,3 @@
-//import { Conversation } from './conversation';
-
 export class Employee {
     id: number;
     employee_name: string;

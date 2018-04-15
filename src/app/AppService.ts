@@ -10,9 +10,6 @@ import { Student } from './student';
 @Injectable()
 export class AppService{
 
-	//url:string="http://localhost:9090/MySpringMVC/springMvc/training/getStudent/?";
-
-	//url: string="http://localhost:9090/MySpringMVC/springMvc/training/getStudent/";
 	constructor(private http: Http){
 
 	}
@@ -59,12 +56,6 @@ export class AppService{
 		);
 	}
 
-
-	// getList(){
-	// 	return this.http.get(this.url).map(
-	// 		(response: Response)=>response.json());
-	// }
-
 	editStudent(id){
 		return this.http.get(`${"http://localhost:7070/MySpringMVC/springMvc/training/getStudent"}/${id}`).map(
       (resp:Response)=>{
@@ -74,11 +65,6 @@ export class AppService{
     );
 	}
 
-	
-
-
-
-	
 	editStudentSubmit(student){
 	  console.log("Edit Service function");
     let headers = new Headers({'Content-Type': 'application/json'});

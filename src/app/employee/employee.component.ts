@@ -99,7 +99,6 @@ export class EmployeeComponent implements OnInit {
   onEdit(){
     this.showEmployeeEditForm=false;
     this.empTable=true;
-    //console.log(this.employeeEditForm.value);
     this.employeeService.updateEmp(this.employeeEditForm.value).subscribe(
       (result:any)=>console.log("Update Response"),
       (error)=>console.log(error)
@@ -107,7 +106,6 @@ export class EmployeeComponent implements OnInit {
     this.getAllStudents();
   }
   submitNewEmployee(){
-    //console.log(this.signUpForm.value);
      this.employeeService.addNewStudent(this.signUpForm.value).subscribe(
       (addResponse:any)=>this.addResult=addResponse,
       (error)=>console.log(error)
