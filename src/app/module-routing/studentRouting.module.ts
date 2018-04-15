@@ -7,7 +7,10 @@ import { AuthGuard } from '../auth-guard.service';
 
 const studentRouting: Routes=[
     {   path:'',                    redirectTo:'studentList',                   pathMatch:'full'    },
-    {   path:'studentList',         component: StudentComponentComponent,       children:[
+    {   path:'studentList',         
+        canActivateChild:[AuthGuard],
+        component: StudentComponentComponent,       
+        children:[ 
         {   path:'studentDetails/:id',     component: StudentDetailsComponent   }
     ]
      },

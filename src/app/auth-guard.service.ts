@@ -1,24 +1,27 @@
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChild } from "@angular/router";
 import { Observable } from "rxjs/Observable";
 import { LocalStorageService } from "./localStorageService";
 
 
 @Injectable()
-export class AuthGuard implements CanActivate{
+export class AuthGuard implements CanActivate, CanActivateChild{
     constructor(private localStorageService: LocalStorageService, private router:Router){
 
     }
     canActivate(route: ActivatedRouteSnapshot, 
         state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean{
-            if(this.localStorageService.getAuthData().role=="admin"){
+            if(this.localStorageService.getAuthData().role=="admins"){
                 return true;
             }else{
-                console.log(this.localStorageService.getAuthData().role);
-                alert('else authguard working');
+                //console.log(this.localStorageService.getAuthData().role);
                 this.router.navigate(['./login']);
-            }
-            
+            }    
+    }
+
+    canActivateChild(route: ActivatedRouteSnapshot, 
+        state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean{
+            return this.canActivate(route, state);
     }
 }

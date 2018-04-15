@@ -25,8 +25,10 @@ export class EmployeeComponent implements OnInit {
   empTable: boolean= true;
   showEmployeeEditForm: boolean= false;
   addResult:number;
+  loading:boolean;
 
   constructor(private employeeService: EmployeeService) {
+    this.loading=true;
       this.getAllStudents();
       setTimeout( function(){
         $(function(){
@@ -61,6 +63,7 @@ export class EmployeeComponent implements OnInit {
            }
           );
       this.hideButton=true;
+      this.loading=false;
   }
 
   clearAllStudents(){
