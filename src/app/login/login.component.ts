@@ -9,31 +9,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-userName:string="bhargav";
+userName:string="";
+role:string="Select Data";
 logInShow:boolean=true;
   constructor(private authService:AuthService, 
-              private localStorageService: LocalStorageService, private router: Router) { 
-
-              }
+              private localStorageService: LocalStorageService, private router: Router) {}
 
   ngOnInit() {
   }
   logIn():void{
-     this.authService.logIn(this.userName).subscribe(
+     this.authService.logIn(this.userName, this.role).subscribe(
        (data)=>{
          this.localStorageService.setAuthData(data);
-         //console.log(data);
-        //  alert('log in worked');
          if(this.userName!=null) {
               this.router.navigate(['/employee']);
          }
        }
      );
   }
-  logOut(){
-    this.localStorageService.clearData();
-    this.router.navigate(['./login']);
-  }
   
-
 }

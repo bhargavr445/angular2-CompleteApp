@@ -12,10 +12,11 @@ export class AuthGuard implements CanActivate, CanActivateChild{
     }
     canActivate(route: ActivatedRouteSnapshot, 
         state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean{
-            if(this.localStorageService.getAuthData().role=="admins"){
+            if(this.localStorageService.getAuthData().role=="admin"){
                 return true;
             }else{
                 //console.log(this.localStorageService.getAuthData().role);
+                this.localStorageService.clearData();
                 this.router.navigate(['./login']);
             }    
     }

@@ -3,6 +3,8 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 import { Employee } from './employee';
 import { Student } from './student';
 import { AppService } from './AppService';
+import { LocalStorageService } from './localStorageService';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -16,22 +18,10 @@ export class AppComponent implements OnInit {
     gamesList: FormGroup;
     firstNames:string[];
     id:number=1;
-    teams=[
-            {
-              name:'Va',
-              id:1
-            },
-            {
-              name:'Md',
-              id:2
-            },
-            {
-              name:'Dc',
-              id:3
-            }
-          ];
 
-  constructor(private appService: AppService) {
+  constructor(private appService: AppService, 
+              private localStorageService: LocalStorageService, 
+              private router: Router) {
   }
 
   ngOnInit(){
@@ -49,28 +39,15 @@ export class AppComponent implements OnInit {
     console.log(selectedData);
   }
 
-  // AddForm(){
-  //   this.showFormToAdd=true;
-  // }
-
   onInputChange(changingData: any[]){
     console.log(changingData);
   }
 
-  // onSubmit(){
-  // this.appService.insertData(this.signUpForm.value).
-  //   subscribe(
-  //     (studentData : string[])=> this.insertValue=studentData,
-  //     (error) => console.log(error)
-  //   );
-  // }
-
-  // getDataById(){
-  //   console.log(this.id);
-  //   this.appService.getStuById(this.id).subscribe(respData=> this.Employees=respData);
-  // }
-
   getData(){
     console.log("Initilized from ngOnInit");
+  }
+  logOut(){
+    this.localStorageService.clearData();
+    this.router.navigate(['./login']);
   }
 }

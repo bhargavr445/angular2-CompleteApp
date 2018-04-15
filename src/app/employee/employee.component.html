@@ -1,7 +1,7 @@
 <div class="loading" *ngIf="loading">
 <img src='../assets/images/spinner.jpg'/>
 </div>
-<div class="container" *ngIf="showFormToAdd">
+<!-- <div class="container" *ngIf="showFormToAdd">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8
                 col-sm-offset-1 col-md-offset-2">
@@ -52,8 +52,8 @@
       </form>
     </div>
   </div>
-</div>
-<div  class="container" *ngIf="empTable">
+</div> -->
+<div  class="container" *ngIf="Employees?.length > 0">
   <div class="col-lg-6">
     <div class="col-md-8 col-sm-8">
       <button class="btn btn-primary"  (click)="AddForm()">Add</button>

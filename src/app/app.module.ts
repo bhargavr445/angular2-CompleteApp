@@ -10,6 +10,7 @@ import { AppService } from './AppService';
 import { uRouting } from './module-routing/user-routing';
 import { lRouting } from './module-routing/login-routing';
 import { AppRoutingModule } from './app-routing.module';
+import { LocalStorageService } from './localStorageService';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { AppRoutingModule } from './app-routing.module';
     uRouting,
     lRouting
   ],
-  providers: [AppService],
+  providers: [AppService, LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
