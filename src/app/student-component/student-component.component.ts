@@ -28,6 +28,7 @@ export class StudentComponentComponent implements OnInit {
   reactiveValue :string;
   createResponse:any;
   studentRecord:Student;
+  count:number=108;
   
   constructor(private studentService: StudentService,
               private router: Router,

@@ -1,6 +1,6 @@
-<div class="loading" *ngIf="loading">
+<!-- <div class="loading" *ngIf="loading">
 <img src='../assets/images/spinner.jpg'/>
-</div>
+</div> -->
 <!-- <div class="container" *ngIf="showFormToAdd">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8
@@ -53,7 +53,29 @@
     </div>
   </div>
 </div> -->
-<div  class="container" *ngIf="Employees?.length > 0">
+<!-- <img src='../assets/images/spinner.jpg' alt="spinner" *ngIf="loading" />  -->
+<!-- <div class="lds-css ng-scope" *ngIf="loading">
+    <div style="width:100%;height:100%" class="lds-facebook">
+      <div>
+      </div>
+  </div>
+</div> -->
+
+
+<div class="lds-css ng-scope img" *ngIf="loading">
+    <div class="lds-spinner" style="width:100%;height:100%"><div>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+<div  class="container" *ngIf="Employees">
   <div class="col-lg-6">
     <div class="col-md-8 col-sm-8">
       <button class="btn btn-primary"  (click)="AddForm()">Add</button>
@@ -163,4 +185,4 @@
     </div>
   </div>
 </div>
-<span [appMouseOver]="'pink'">My Custome Directive</span>
+<span *ngIf="Employees" [appMouseOver]="'pink'">My Custome Directive</span>

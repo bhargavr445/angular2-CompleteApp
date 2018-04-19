@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AppService } from '../AppService';
 import { Student } from '../student';
 import { EmployeeService } from './employee-service';
@@ -14,6 +14,7 @@ declare var $;
 })
 
 export class EmployeeComponent implements OnInit {
+  @Input() parentCount:number;
   Employees: Employee[];
   employee: Employee;
   Students: Student[];
@@ -28,7 +29,8 @@ export class EmployeeComponent implements OnInit {
   loading:boolean;
 
   constructor(private employeeService: EmployeeService) {
-    this.loading=true;
+    
+    
       this.getAllStudents();
       setTimeout( function(){
         $(function(){
@@ -56,14 +58,17 @@ export class EmployeeComponent implements OnInit {
   }
 
   getAllStudents(){
+    this.loading=true;
     this.employeeService.getAllStudents().subscribe(
       (data)=> 
           {
-              this.Employees=data
+              this.Employees=data;
+              this.loading=false;
            }
           );
+
       this.hideButton=true;
-      this.loading=false;
+      
   }
 
   clearAllStudents(){

@@ -117,7 +117,7 @@
         <tbody>
           <tr [appMouseOver]="'pink'" *ngFor="let stu of Students" (click)="getStudentDetails(stu.id)">
             <td *ngIf="showData">{{stu.id}}</td>
-            <td *ngIf="showEditForm"><input name="id" formControlName="id" class="form-control" value={{stu.id}}></td>
+            <td *ngIf="showEditForm"><input name="id"  formControlName="id" class="form-control" value={{stu.id}}></td>
             <td *ngIf="showData">{{stu.fName | uppercase}}</td>
             <td *ngIf="showEditForm"><input name="fName" formControlName="fName" class="form-control" value={{stu.fName}}></td>
             <td *ngIf="showData">{{stu.lName }}</td>
@@ -152,7 +152,7 @@
         </tbody>
       </table>
     </div>
-    
+     <!-- <app-employee [parentCount]="count"></app-employee>  -->
     <div class="col-xl-6">
       <div>
       <router-outlet>Details Page</router-outlet>
@@ -160,9 +160,6 @@
     </div>
   </div>
   </div>
-
-
-
   <!-- <div class="container">
     <div class="row">
       <div class="col-sm-12">
@@ -177,3 +174,12 @@
       </div>
     </div>
   </div> -->
+
+
+
+  <div class="lds-css ng-scope">
+    <div style="width:50%;height:50%" class="lds-facebook">
+      <div>
+      </div>
+  </div>
+</div>
