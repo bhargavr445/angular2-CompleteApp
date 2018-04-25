@@ -3,13 +3,17 @@ td {
 }
 
 body {
-    height: 80%;
+    height: 100%;
 }
 .img {
     width:400px;
     height: 200px;
     margin: 40px 60px 40px 60px;
 
+}
+
+#heightSpecific {
+  height: 600px;
 }
 
 /* @keyframes lds-facebook_1 {

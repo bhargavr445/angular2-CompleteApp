@@ -7,6 +7,9 @@ import { Student } from '../student';
 import { StudentService } from './student-service';
 import { ActivatedRoute } from '@angular/router';
 import { LocalStorageService } from '../localStorageService';
+
+import { SpinnerService } from '../spinner.service';
+
 declare var $;
 @Component({
   selector: 'app-student-component',
@@ -31,7 +34,7 @@ export class StudentComponentComponent implements OnInit {
   count:number=108;
   
   constructor(private studentService: StudentService,
-              private router: Router,
+              private router: Router, private spinnerService: SpinnerService,
               private route:ActivatedRoute,
               private localStorageService: LocalStorageService) {
       this.getStudentData();
@@ -62,10 +65,12 @@ export class StudentComponentComponent implements OnInit {
   }
 
   getStudentData(){
+   //this.spinnerService.show('mySpinner');
     this.studentService.getStudentData()
     .subscribe(
       data=>{
         this.Students=data;
+        //this.spinnerService.hide('mySpinner');
       }
       // (studentList:Student[])=>this.Students=studentList,
       // (error)=> console.log(error)

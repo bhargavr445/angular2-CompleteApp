@@ -8,6 +8,7 @@ import { MouseOverDirective } from './ditrctives/mouse-over.directive';
 import { UppercaseDirective } from './ditrctives/uppercase.directive';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LocalStorageService } from './localStorageService';
+import { SpinnerService } from './spinner.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -18,7 +19,8 @@ import { LocalStorageService } from './localStorageService';
   ],
   providers: [
       EmployeeService,
-      LocalStorageService
+      LocalStorageService,
+      SpinnerService
     ],
   
   declarations: [

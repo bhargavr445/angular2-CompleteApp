@@ -12,15 +12,38 @@ import { error } from 'selenium-webdriver';
   styleUrls: ['./student-details.component.css']
 })
 export class StudentDetailsComponent implements OnInit {
-id:number=0;
-address:Address;
-emptyAddress:string;
-showAddress:boolean=false;
+  id:number=0;
+  address:Address;
+  emptyAddress:string;
+  showAddress:boolean=false;
 //@Input() studentId: number;
   constructor(private studentService: StudentService, 
               private router: ActivatedRoute){ 
 
   }
+  ngOnInit() {
+    //this.id=+this.router.snapshot.params['id'];
+      this.id=+this.router.params.subscribe(
+        (param:Params)=>{
+            this.id=param['id'];
+            this.getAddress(this.id); 
+           }
+         );
+      }
+
+  getAddress(id:number): any{
+    this.studentService.getAddressById(this.id).subscribe(
+      (data)=>
+       {
+         this.address=data;
+       });
+    }
+
+
+
+}
+
+
   // getAddress(id:number){
   //   console.log(id);
   //   this.studentService.getAddressById(id).subscribe(
@@ -42,23 +65,3 @@ showAddress:boolean=false;
   //   );
     
   // }
-  getAddress(id:number): any{
-    this.studentService.getAddressById(this.id).subscribe(
-      (data)=>
-       {
-         this.address=data;
-       }
-    );
-    }
-
-
-  ngOnInit() {
-//this.id=+this.router.snapshot.params['id'];
-     this.id=+this.router.params.subscribe(
-       (param:Params)=>{
-        this.id=param['id'];
-        this.getAddress(this.id); 
-       }
-     );
-  }
-}

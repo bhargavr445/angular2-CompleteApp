@@ -1,3 +1,56 @@
 td {
     cursor: pointer;
 }
+
+#blueRectangle {
+    background: rgb(4, 4, 197);
+    height:auto;
+    min-height:30px;
+    height:auto !important;        /* for IE as it does not support min-height */
+    height:30px;                   /* for IE as it does not support min-height */
+    width: 1400px;
+    margin: 50px 20px;
+}
+
+.first {
+    background: rgb(200, 187, 218);
+    min-height: 50px;
+    width: 660px;
+    float: left;
+    margin: 10px 10px;
+}
+.second {
+    background: rgb(189, 7, 7);
+    min-height: 50px;
+    width: 660px;
+    float: right;
+    margin: 10px 10px;
+}
+
+@media screen and (max-width:1399px) {
+    #blueRectangle {
+        width: 100%;
+    }
+    .first {
+        width: 46%;
+    }
+    .second {
+        width: 46%;
+    }
+}
+@media screen and (max-width:790px) {
+    .first {
+        width: 100%;
+        margin: 10px 0px;
+    }
+    .second {
+        width: 100%;
+        margin: 10px 0px;
+        /* display: none; */
+    }
+}
+@media screen and (max-width:400px) {
+    #blueRectangle {
+        width: 400px;
+    }
+}
