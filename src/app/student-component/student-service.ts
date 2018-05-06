@@ -50,17 +50,11 @@ export class StudentService{
 		{
 			const data = fnamesResponse.json();
 			return data;
-		}
-	);
+		});
   }
   
-  addNewStudentTest(student){
-    return this.http.post("http://localhost:7070/MySpringMVC/springMvc/training/createStudent", student).map(
-      (response:Response)=>{
-        const data = response.json();
-        return data;
-      }
-    );
+  addNewStudentTest(student):Observable<Number>{
+    return this.httpC.post<Number>("http://localhost:7070/MySpringMVC/springMvc/training/createStudent", student,);
   }
 
   getAddressById(id):Observable<Address>{

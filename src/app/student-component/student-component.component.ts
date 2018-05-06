@@ -32,6 +32,7 @@ export class StudentComponentComponent implements OnInit {
   createResponse:any;
   studentRecord:Student;
   count:number=108;
+  respData:any=0;
   
   constructor(private studentService: StudentService,
               private router: Router, private spinnerService: SpinnerService,
@@ -89,7 +90,9 @@ export class StudentComponentComponent implements OnInit {
     this.showAddButton=true;
 
   }
-
+displayModel(){
+  
+}
   hideStudentForm(){
     this.studentFormShow=false;
     this.showAddButton=true;
@@ -124,11 +127,17 @@ export class StudentComponentComponent implements OnInit {
 
   addNewStudentTest(){
     this.studentService.addNewStudentTest(this.newStudentForm.value).subscribe(
-      (addResponse: any)=>this.createResponse=addResponse,
-      (error)=> console.log(error),
-      ()=>this.getStudentData()
-    );
-    
+      data=>{
+        this.respData=data;
+        console.log(this.respData);
+        this.getStudentData();
+        //this.dispalyModel();
+      },
+       
+        //
+      err => {
+         console.log("Error occured.")
+     });
   }
   getStudentDetails(id:number){
       this.router.navigate(['studentDetails', id],{relativeTo:this.route});
@@ -140,4 +149,6 @@ export class StudentComponentComponent implements OnInit {
       (error)=> console.log(error)
     );
   }
+
+
 }
