@@ -1,26 +1,15 @@
 
-<div  class="container">
-  <div class="col-lg-6"> 
-      <table id="dt"  class="table" style="background-color:powderblue;">
-        <thead class="thead-dark">
-          <tr>
-            <th>Id</th>
-            <th>Dept</th>
-            <th>Name</th>
-            <th>Options</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr [appMouseOver]="'pink'" *ngFor="let user of userList">
-            <td>{{user.id}}</td>
-            <td>{{user.dept}}</td>
-              <td>{{user.name}}</td>
-              <td>
-                <button class="btn btn-danger btn-sm" type="submit" (click)=deleteEmp(user.id)>
-                  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
-              </td>
-          </tr>
-        </tbody>
-      </table>
-     </div>
-</div> 
+<div class="rectangle">
+  <form [formGroup]="userForm" (submit)="addUser()">
+    <input type="text" formControlName="name"/>
+    <input type="number" formControlName="sal"/>
+    <div formGroupName="address">
+        <input type="text" formControlName="line1"/>
+        <input type="text" formControlName="apt"/>
+        <input type="text" formControlName="city"/>
+    <input type="text" formControlName="state"/>
+    <input type="text" formControlName="zip"/>
+    </div>
+    <input type="submit" />
+  </form>
+</div>

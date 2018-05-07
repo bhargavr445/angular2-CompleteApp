@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {FormGroup, FormControl, Validators, FormArray, FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppService } from '../AppService';
 import { Employee } from '../employee';
@@ -55,7 +55,8 @@ export class StudentComponentComponent implements OnInit {
         'id': new FormControl(null, Validators.required),
         'fName': new FormControl(null, Validators.required),
         'lName': new FormControl(null, Validators.required),
-        'email': new FormControl(null, Validators.required)
+        'email': new FormControl(null, Validators.required),
+
       });
 
     this.editStudentForm = this.newStudentForm;

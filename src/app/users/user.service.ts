@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http, Response, RequestOptions } from '@angular/http';
 import 'rxjs/Rx';
-
+import { Observable } from 'rxjs/Observable';
+import { HttpRequest } from '@angular/common/http';
+import {  HttpClient, HttpClientModule } from '@angular/common/http'; 
 
 @Injectable()
 export class UserService{
-  constructor(private http: Http){
+  constructor(private http: HttpClient){
 
   }
 
@@ -28,7 +30,9 @@ export class UserService{
   }
   
   
-
+ saveData(userData:any):Observable<number>{
+     return this.http.post<number>('url',userData);
+ }
   
   
  

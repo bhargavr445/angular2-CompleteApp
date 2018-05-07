@@ -1,0 +1,14 @@
+/* .rectangle{
+    display:block;
+    height:40px;
+    width:150px;
+    background:red;
+    position:relative;
+    margin-top:100px;
+    margin-left: 20px;
+    border: 20px,solid;
+} */
+
+.rectangle {
+    min-height: 100px;
+}
