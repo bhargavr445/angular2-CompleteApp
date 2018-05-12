@@ -3,6 +3,11 @@
 }
 
 button {
-  margin-left: 1200%;
+  margin-left: 800%;
     margin-top: 7px;
+    float: right;
+}
+.userInfo {
+  cursor: auto;
+  float: right;
 }

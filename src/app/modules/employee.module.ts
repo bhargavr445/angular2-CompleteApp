@@ -5,13 +5,14 @@ import { EmployeeComponent } from '../employee/employee.component';
 import { SharedModule } from '../shared.module';
 import { InterceptorModule } from '../interceptor.module';
 import { EmployeeRoutingModule } from '../module-routing/employeeRouting.module';
-
+import {EmployeeDetailsComponent} from '../employee/employee-details/employee-details.component';
 
 
 
 @NgModule({
     declarations:[
-        EmployeeComponent
+        EmployeeComponent,
+        EmployeeDetailsComponent
     ],
     imports:[
         SharedModule,

@@ -13,15 +13,18 @@ import { Router } from '@angular/router';
 })
 
 export class AppComponent implements OnInit {
-    @Input() userNameC;
+    @Input() userName;
     Employees: Employee[];
     gamesList: FormGroup;
     firstNames:string[];
     id:number=1;
+    user:string;
 
   constructor(private appService: AppService, 
               private localStorageService: LocalStorageService, 
               private router: Router) {
+
+              // this.user = this.localStorageService.getAuthData().userName;
   }
 
   ngOnInit(){

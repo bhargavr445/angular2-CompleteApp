@@ -12,3 +12,109 @@
 .rectangle {
     min-height: 100px;
 }
+
+
+.container1 {
+    width:1410px;
+    border: 2px solid red;
+    margin: 10px 20px 10px 20px;
+    float: inherit
+}
+
+.container1 input {
+    width: 48%;
+    margin: 10px 10px 10px 10px;
+    float: inherit;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=number], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #0f5712;
+}
+
+.blueContainer{
+    margin: 10px 20px 10px 20px;
+    width: 23%;
+    background: black;
+    height: 40px;
+    float: inherit
+}
+.greenContainer{
+    margin: 10px 20px 10px 20px;
+    width: 23%;
+    background: green;
+    height: 40px;
+    float: inherit
+}
+.redContainer{
+    margin: 10px 20px 10px 20px;
+    width: 23%;
+    background: red;
+    height: 40px;
+    float: inherit
+}
+.orangeContainer{
+    margin: 10px 20px 10px 20px;
+    width: 23%;
+    background: orange;
+    height: 40px;
+    float: inherit
+}
+
+
+@media screen and (max-width:1424px) {
+    .container1 {
+        width:90%;
+        float: none
+    }
+    .container1 input {
+        width: 80%;
+        margin: 10px 10px 10px 10px;
+        float: inherit
+    }
+}
+@media screen and (max-width:790px) {
+    .container1 {
+        width:60%;
+        float: none
+    }
+    .container1 input {
+        width: 80%;
+        margin: 10px 10px 10px 10px;
+        float: inherit
+    }
+}
+@media screen and (max-width:400px) {
+    .container1 {
+        width:400px;
+    }
+}

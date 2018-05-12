@@ -27,6 +27,7 @@ export class EmployeeComponent implements OnInit {
   showEmployeeEditForm: boolean= false;
   addResult:number;
   loading:boolean;
+  id:number;
 
   constructor(private employeeService: EmployeeService) {
     
@@ -116,4 +117,13 @@ export class EmployeeComponent implements OnInit {
       (error)=>console.log(error)
     );
   }
+
+  getEmpDetails(eid){
+    this.id=eid;
+    //this.getEmpDetailsChild();
+  }
+
+  // getEmpDetailsChild():number{
+  // return this.id;
+  // }
 }

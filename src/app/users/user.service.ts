@@ -16,8 +16,7 @@ export class UserService{
           (responseData:Response)=>{
           const userList = responseData.json();
           return userList;
-        }
-      );
+        });
   }
   
   deleteEmp(id){
@@ -28,10 +27,8 @@ export class UserService{
         }
     );
   }
-  
-  
  saveData(userData:any):Observable<number>{
-     return this.http.post<number>('url',userData);
+     return this.http.post<number>('http://localhost:7070/MySpringMVC/springMvc/address/mapping',userData);
  }
   
   

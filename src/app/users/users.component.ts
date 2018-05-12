@@ -43,13 +43,12 @@ deleteRespData:number;
     );
   }
   addUser(){
-    this.userService.saveData(this.userForm.value);
-    // .subscribe(
-    //   data=>{
-    //     this.id=data;
-    //   },err=>{
-    //     console.log('error Occured');
-    //   }
-    // );
+    this.userService.saveData(this.userForm.value).subscribe(
+      data=>{
+        this.id=data;
+      },err=>{
+        console.log('error Occured');
+      }
+    );
   }
 }

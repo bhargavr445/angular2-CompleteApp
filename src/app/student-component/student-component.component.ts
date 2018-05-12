@@ -72,21 +72,13 @@ export class StudentComponentComponent implements OnInit {
     .subscribe(
       data=>{
         this.Students=data;
-        //this.spinnerService.hide('mySpinner');
-      }
-      // (studentList:Student[])=>this.Students=studentList,
-      // (error)=> console.log(error)
-    );
+      },err=>{
+        console.log("Get All student data");
+      });
     this.showAddButton=true;
   }
   submitNewStudent(){
     this.studentFormShow=false;
-    // console.log(this.newStudentForm.value);
-    // this.studentService.submitNewStudent(this.newStudentForm.value).subscribe(
-    //   (respData: number)=>this.result=respData,
-    //   (error)=>console.log(error)
-    // );
-    //this.newStudentForm.reset();
     this.getStudentData();
     this.showAddButton=true;
 
@@ -137,7 +129,7 @@ displayModel(){
        
         //
       err => {
-         console.log("Error occured.")
+         console.log("Error occured while creating data ")
      });
   }
   getStudentDetails(id:number){

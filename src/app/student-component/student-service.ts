@@ -13,7 +13,7 @@ export class StudentService{
 
   }
   getStudentData():Observable<Student[]>{
-    // const req=new HttpRequest('GET','http://localhost:7070/MySpringMVC/springMvc/student/getAllStudents',{});
+    // const req=new HttpRequest('GET','',{});
     // return this.httpC.request(req);
     return this.httpC.get<Student[]>("http://localhost:7070/MySpringMVC/springMvc/student/getAllStudents");
   }

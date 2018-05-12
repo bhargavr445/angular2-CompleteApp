@@ -13,7 +13,7 @@ export class EmployeeService{
   }
 
   getAllStudents():Observable<Employee[]>{
-		return this.httpC.get<Employee[]>("http://localhost:7070/MySpringMVC/springMvc/training/getAllEmp");
+		return this.httpC.get<Employee[]>("http://dummy.restapiexample.com/api/v1/employees");
 	}
 
 	getDataToEdit(id){

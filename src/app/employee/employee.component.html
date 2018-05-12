@@ -95,7 +95,7 @@
         </thead>
         <tbody>
           <!-- <tr appMouseOver [hoverColor]="'pink'" *ngFor="let emp of Employees"> -->
-          <tr [appMouseOver]="'pink'" *ngFor="let emp of Employees">
+          <tr [appMouseOver]="'pink'" *ngFor="let emp of Employees" (click)="getEmpDetails(emp.id)"> 
             <!-- we can use selector name as an attribute. -->
             <td>{{emp.id}}</td>
             <td>{{emp.employee_name}}</td>
@@ -187,3 +187,5 @@
   </div>
 </div>
 <span *ngIf="Employees" [appMouseOver]="'pink'">My Custome Directive</span>
+
+<app-employee-details [id]="id"></app-employee-details>

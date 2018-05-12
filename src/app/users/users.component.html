@@ -1,7 +1,16 @@
 
-<div class="rectangle">
+<body>
+<div class="container1">
+    <input  type="text" />
+    <input type="number" />
+</div>
+
+
+
+
+<div class="container">
   <form [formGroup]="userForm" (submit)="addUser()">
-    <input type="text" formControlName="name"/>
+    <input  type="text" formControlName="name"/>
     <input type="number" formControlName="sal"/>
     <div formGroupName="address">
         <input type="text" formControlName="line1"/>
@@ -13,3 +22,4 @@
     <input type="submit" />
   </form>
 </div>
+</body>
