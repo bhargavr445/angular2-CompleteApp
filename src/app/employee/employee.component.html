@@ -1,3 +1,4 @@
+
 <!-- <div class="loading" *ngIf="loading">
 <img src='../assets/images/spinner.jpg'/>
 </div> -->
@@ -95,7 +96,7 @@
         </thead>
         <tbody>
           <!-- <tr appMouseOver [hoverColor]="'pink'" *ngFor="let emp of Employees"> -->
-          <tr [appMouseOver]="'pink'" *ngFor="let emp of Employees" (click)="getEmpDetails(emp.id)"> 
+          <tr [appMouseOver]="'pink'" *ngFor="let emp of Employees" (click)="getEmpDetails(emp)"> 
             <!-- we can use selector name as an attribute. -->
             <td>{{emp.id}}</td>
             <td>{{emp.employee_name}}</td>
@@ -188,4 +189,5 @@
 </div>
 <span *ngIf="Employees" [appMouseOver]="'pink'">My Custome Directive</span>
 
-<app-employee-details [id]="id"></app-employee-details>
+<app-employee-details [id]="id"></app-employee-details> 
+<app-footer></app-footer>

@@ -27,7 +27,7 @@ export class EmployeeComponent implements OnInit {
   showEmployeeEditForm: boolean= false;
   addResult:number;
   loading:boolean;
-  id:number;
+  id:Employee;
 
   constructor(private employeeService: EmployeeService) {
     

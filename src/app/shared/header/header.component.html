@@ -1,0 +1,15 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Angular 5, 6</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a class="nav-item nav-link" routerLink="/login">Log In <span class="sr-only">(current)</span></a></li>
+    <li><a class="nav-item nav-link" routerLink="/employee">Employee</a></li>
+  <li> <a class="nav-item nav-link" routerLink="/student">Student</a></li>
+<li> <a class="nav-item nav-link" routerLink="/user">SprindBoot</a></li>
+<li *ngIf="user!=null || user!=undefined"> <a class="nav-item nav-link userInfo">Logged in as {{user}}</a></li>
+<li><button type="submit" class="nav-item nav-link btn btn-danger log" (click)="logOut()">Logout</button></li>
+    </ul>
+  </div>
+</nav>
