@@ -8,8 +8,8 @@
       <li><a class="nav-item nav-link" routerLink="/login">Log In <span class="sr-only">(current)</span></a></li>
     <li><a class="nav-item nav-link" routerLink="/employee">Employee</a></li>
   <li> <a class="nav-item nav-link" routerLink="/student">Student</a></li>
-<li> <a class="nav-item nav-link" routerLink="/user">SprindBoot</a></li>
-<li *ngIf="user!=null || user!=undefined"> <a class="nav-item nav-link userInfo">Logged in as {{user}}</a></li>
+<li> <a class="nav-item nav-link" routerLink="/user">{{printUserName}}</a></li>
+<li *ngIf="user!=null || user!=undefined"> <a class="nav-item nav-link userInfo">Logged in as {{printUserName}}</a></li>
 <li><button type="submit" class="nav-item nav-link btn btn-danger log" (click)="logOut()">Logout</button></li>
     </ul>
   </div>
@@ -29,11 +29,10 @@
   </div>
 </nav> -->
 <router-outlet></router-outlet>
-
 <!--Footer-->
 <footer class="page-footer font-small unique-color-dark pt-0">
 
-  <div style="background-color: #6351ce;">
+  <div>
       <div class="container">
           <!--Grid row-->
           <div class="row py-4 d-flex align-items-center">

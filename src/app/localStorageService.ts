@@ -6,15 +6,15 @@ import { HttpClientModule, HttpClient} from '@angular/common/http';
 export class LocalStorageService {
 
     public setAuthData(auth : TokenParams):void{
-        localStorage.setItem("Authorization", JSON.stringify(auth));
+        sessionStorage.setItem("Authorization", JSON.stringify(auth));
     }
 
     public getAuthData(): TokenParams{
-        let tokenData=JSON.parse(localStorage.getItem("Authorization"));
+        let tokenData=JSON.parse(sessionStorage.getItem("Authorization"));
         return tokenData==null ? null:tokenData;
     }
 
     clearData(){
-        localStorage.clear();
+        sessionStorage.clear();
     }
 }

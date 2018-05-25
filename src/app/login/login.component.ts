@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 userName:string="";
 role:string="Select Data";
+loggedInUserName:string="";
 logInShow:boolean=true;
   constructor(private authService:AuthService, 
               private localStorageService: LocalStorageService, private router: Router) {}
@@ -21,9 +22,13 @@ logInShow:boolean=true;
      this.authService.logIn(this.userName, this.role).subscribe(
        (data)=>{
          this.localStorageService.setAuthData(data);
-         if(this.userName!=null) {
+         //alert(this.localStorageService.getAuthData().userName);
+         this.loggedInUserName = this.localStorageService.getAuthData().userName;
+         if(this.localStorageService.getAuthData().userName!=null) {
               this.router.navigate(['/employee']);
          }
+       },(err)=>{
+         console.log('login Failed');
        }
      );
   }

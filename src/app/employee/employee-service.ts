@@ -11,6 +11,9 @@ export class EmployeeService{
   constructor(private httpC: HttpClient, private http:Http){
 
   }
+getWeatherInfo():Observable<any[]>{
+	return this.httpC.get<any[]>("file:///Users/bhargavrguntaka/Downloads/forms-reactive-startB/src/app/assets/data/weather.json");
+}
 
   getAllStudents():Observable<Employee[]>{
 		return this.httpC.get<Employee[]>("http://dummy.restapiexample.com/api/v1/employees");

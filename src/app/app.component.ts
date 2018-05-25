@@ -19,17 +19,16 @@ export class AppComponent implements OnInit {
     firstNames:string[];
     id:number=1;
     user:string;
+    printUserName:string="";
 
-  constructor(private appService: AppService, 
+constructor(private appService: AppService, 
               private localStorageService: LocalStorageService, 
               private router: Router) {
-
-              // this.user = this.localStorageService.getAuthData().userName;
+                
   }
 
   ngOnInit(){
-
-
+    this.getData();
     this.gamesList=new FormGroup({
         'game': new FormControl(null),
         'platform': new FormControl(null),
@@ -48,6 +47,7 @@ export class AppComponent implements OnInit {
 
   getData(){
     console.log("Initilized from ngOnInit");
+    this.printUserName = this.localStorageService.getAuthData().userName;
   }
   logOut(){
     this.localStorageService.clearData();

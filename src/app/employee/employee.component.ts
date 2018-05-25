@@ -5,6 +5,7 @@ import { EmployeeService } from './employee-service';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import { Employee } from '../employee';
 import { error } from 'util';
+import {Observable} from 'rxjs/Rx';
 declare var $;
 
 @Component({
@@ -28,6 +29,7 @@ export class EmployeeComponent implements OnInit {
   addResult:number;
   loading:boolean;
   id:Employee;
+  weatherInformation:any[];
 
   constructor(private employeeService: EmployeeService) {
     
@@ -41,6 +43,16 @@ export class EmployeeComponent implements OnInit {
   }
 
   ngOnInit() {
+    // Observable.interval(5000).subscribe(x => {
+    //   //alert('Sample Interval Function');
+    //   this.getAllStudents();
+      
+    // });
+
+    this.employeeService.getWeatherInfo().subscribe(
+      data=>{
+          this.weatherInformation = data;
+    });
     this.signUpForm = new FormGroup({
   		'id': new FormControl(null, Validators.required),
   		'employee_name' : new FormControl(null, Validators.required),
