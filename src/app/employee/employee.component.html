@@ -99,7 +99,7 @@
           <tr [appMouseOver]="'pink'" *ngFor="let emp of Employees" (click)="getEmpDetails(emp)"> 
             <!-- we can use selector name as an attribute. -->
             <td>{{emp.id}}</td>
-            <td>{{emp.employee_name}}</td>
+            <td>{{emp.employee_name | shorten}}</td>
               <td>{{emp.employee_age}}</td>
             <td>{{emp.employee_sal}}</td>
             <td *ngIf="emp.employee_age>'20'">👩‍💼‍</td>

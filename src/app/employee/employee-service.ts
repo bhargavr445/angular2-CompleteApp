@@ -12,7 +12,7 @@ export class EmployeeService{
 
   }
 getWeatherInfo():Observable<any[]>{
-	return this.httpC.get<any[]>("file:///Users/bhargavrguntaka/Downloads/forms-reactive-startB/src/app/assets/data/weather.json");
+	return this.httpC.get<any[]>("http://Users/bhargavrguntaka/Downloads/forms-reactive-startB/src/app/assets/data/weather.json");
 }
 
   getAllStudents():Observable<Employee[]>{

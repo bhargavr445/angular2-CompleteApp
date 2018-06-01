@@ -1,0 +1,14 @@
+.nav-container {
+    width: 16%;
+    float: left;
+    /* background-color: red */
+    border: 2px solid red;
+    margin-left: 20px
+}
+.modules-container {
+    width: 75%;
+    /* float: right; */
+    background-color: aquamarin;
+    border: 2px solid black;
+    margin-left: 300px;
+}

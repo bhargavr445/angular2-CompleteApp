@@ -9,6 +9,7 @@ import { UppercaseDirective } from './ditrctives/uppercase.directive';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LocalStorageService } from './localStorageService';
 import { SpinnerService } from './spinner.service';
+import { ShortenPipe } from './pipes/shorten.pipe';
 @NgModule({
   imports: [
     CommonModule,
@@ -25,7 +26,8 @@ import { SpinnerService } from './spinner.service';
   
   declarations: [
       MouseOverDirective,
-      UppercaseDirective
+      UppercaseDirective,
+      ShortenPipe
     ],
   
       exports:[
@@ -35,7 +37,8 @@ import { SpinnerService } from './spinner.service';
         ReactiveFormsModule,
         MouseOverDirective,
         UppercaseDirective,
-        HttpClientModule
+        HttpClientModule,
+        ShortenPipe
 ]
 
 })

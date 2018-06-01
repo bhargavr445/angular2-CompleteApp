@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LocalStorageService } from './localStorageService';
 import { FooterModule } from '../app/shared/footer/footer.module';
 import { HeaderModule } from '../app/shared/header/header.module';
+
 @NgModule({
   declarations: [
     AppComponent

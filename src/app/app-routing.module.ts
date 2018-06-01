@@ -13,6 +13,10 @@ const appRoutes:Routes=[
   { path:'student',        
     loadChildren:'app/modules/student.module#StudentModule',      
     data: { preload: true }
+  },
+  { path:'profile',        
+    loadChildren:'app/modules/profile.module#ProfileModule',      
+    data: { preload: true }
   }
 ];
 
