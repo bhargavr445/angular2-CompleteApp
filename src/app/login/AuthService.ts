@@ -3,11 +3,14 @@ import { Observable } from "rxjs/Observable";
 import { TokenParams } from "../model/tokenParams";
 import { HttpClientModule, HttpClient, HttpHeaders } from "@angular/common/http";
 import {Http} from '@angular/http';
-
+import {Store} from '@ngrx/store';
+import * as fromApp from '../store/app.reducers';
+import * as AuthActions from '../login/store/auth.actions';
 @Injectable()
 export class AuthService{
-
-    constructor(private http: HttpClient){
+ tp:Observable<TokenParams>;
+    constructor(private http: HttpClient,
+                private store: Store<fromApp.AppState>){
 
     }
     logIn(userName:string, role:string):Observable<TokenParams>{
@@ -19,9 +22,10 @@ export class AuthService{
         //console.log(other_header.get('token'))
 
 const other_header = new HttpHeaders({'Content-type':'application/json','token':userName,'role':role});
-       return this.http.get<TokenParams>("http://localhost:8080/rest/users/logIn", {headers: other_header});
+       this.tp = this.http.get<TokenParams>("http://localhost:8080/rest/users/logIn", {headers: other_header});
+       this.store.dispatch(new AuthActions.Signin());
        //("http://localhost:7070/MySpringMVC/springMvc/student/logIn", {headers: other_header});
-       
+       return this.tp;
        //,{headers: other_header}
     }
 

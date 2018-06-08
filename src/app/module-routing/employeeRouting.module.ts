@@ -2,12 +2,13 @@ import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
 import { EmployeeComponent } from '../employee/employee.component';
+import { AuthGuard } from '../auth-guard.service';
     
 
 const employeeRouting: Routes   =       [
         //Made path adjustments 
         // {   path:'',                        redirectTo:'employeeList',        pathMatch:'full'},
-        {   path:'',            component: EmployeeComponent }//employeeList
+        {   path:'',      canActivate:[AuthGuard],      component: EmployeeComponent }//employeeList
 ];
 @NgModule({
         imports:[

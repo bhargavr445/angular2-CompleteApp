@@ -9,26 +9,12 @@
     <li><a class="nav-item nav-link" routerLink="/employee">Employee</a></li>
   <li> <a class="nav-item nav-link" routerLink="/student">Student</a></li>
   <li> <a class="nav-item nav-link" routerLink="/profile/profileLanding">profile</a></li>
-<li> <a class="nav-item nav-link" routerLink="/user">{{printUserName}}</a></li>
+<li> <a class="nav-item nav-link" routerLink="/user">{{(authState | async).authenticated}}</a></li>
 <li *ngIf="user!=null || user!=undefined"> <a class="nav-item nav-link userInfo">Logged in as {{printUserName}}</a></li>
 <li><button type="submit" class="nav-item nav-link btn btn-danger log" (click)="logOut()">Logout</button></li>
     </ul>
   </div>
 </nav>
-<!-- <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" href="#">Navbar</a>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link" routerLink="/login">Log In <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" routerLink="/employee">Employee</a>
-      <a class="nav-item nav-link" routerLink="/student">Student</a>
-      <a class="nav-item nav-link" routerLink="/user">SprindBoot</a>
-    </div>
-  </div>
-</nav> -->
 <router-outlet></router-outlet>
 <!--Footer-->
 <footer class="page-footer font-small unique-color-dark pt-0">

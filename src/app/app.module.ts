@@ -3,6 +3,7 @@ import { NgModule, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
 import { SelectModule } from 'angular2-select';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -11,8 +12,7 @@ import { uRouting } from './module-routing/user-routing';
 import { lRouting } from './module-routing/login-routing';
 import { AppRoutingModule } from './app-routing.module';
 import { LocalStorageService } from './localStorageService';
-import { FooterModule } from '../app/shared/footer/footer.module';
-import { HeaderModule } from '../app/shared/header/header.module';
+import { reducers } from './store/app.reducers';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,8 @@ import { HeaderModule } from '../app/shared/header/header.module';
     SelectModule,
     AppRoutingModule,
     uRouting,
-    lRouting
+    lRouting,
+    StoreModule.forRoot(reducers)
   ],
   providers: [AppService, LocalStorageService],
   bootstrap: [AppComponent]
