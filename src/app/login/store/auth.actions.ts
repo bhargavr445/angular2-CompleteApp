@@ -4,7 +4,11 @@ export const SIGNIN = 'SIGNIN';
 export const LOGOUT = 'LOGOUT';
 
 export class Signin implements Action {
+    
     readonly type = SIGNIN;
+    constructor(){
+        console.log("Sign In action executed")
+    }
 }
 
 export class Logout implements Action {

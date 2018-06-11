@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import * as fromApp from '../store/app.reducers';
 import * as fromAuth from '../login/store/auth.reducers';
 import { Observable } from 'rxjs/Observable';
-
+import * as AuthActions from '../login/store/auth.actions';
 
 @Component({
   selector: 'app-login',
@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
        (data)=>{
          this.localStorageService.setAuthData(data);
          //alert(this.localStorageService.getAuthData().userName);
+         this.store.dispatch(new AuthActions.Signin());
          this.loggedInUserName = this.localStorageService.getAuthData().userName;
          if(this.localStorageService.getAuthData().userName!=null) {
               this.router.navigate(['/employee']);

@@ -9,6 +9,7 @@ import { LocalStorageService } from './localStorageService';
 import { Router } from '@angular/router';
 import * as fromApp from './store/app.reducers';
 import * as fromAuth from './login/store/auth.reducers';
+import * as AuthActions from './login/store/auth.actions';
 
 
 @Component({
@@ -58,6 +59,7 @@ constructor(private appService: AppService,
   }
   logOut(){
     this.localStorageService.clearData();
+    this.store.dispatch(new AuthActions.Logout());
     this.router.navigate(['./login']);
   }
 }

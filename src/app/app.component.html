@@ -10,9 +10,9 @@
   <li> <a class="nav-item nav-link" routerLink="/student">Student</a></li>
   <li> <a class="nav-item nav-link" routerLink="/profile/profileLanding">profile</a></li>
 <li> <a class="nav-item nav-link" routerLink="/user">{{(authState | async).authenticated}}</a></li>
-<li *ngIf="user!=null || user!=undefined"> <a class="nav-item nav-link userInfo">Logged in as {{printUserName}}</a></li>
-<li><button type="submit" class="nav-item nav-link btn btn-danger log" (click)="logOut()">Logout</button></li>
-    </ul>
+<li *ngIf = "(authState | async).authenticated"> <a class="nav-item nav-link userInfo">Logged in as {{printUserName}}</a></li>
+<li><button type="submit" *ngIf = "(authState | async).authenticated" class="nav-item nav-link btn btn-danger log" (click)="logOut()">Logout</button></li>  
+</ul>
   </div>
 </nav>
 <router-outlet></router-outlet>
